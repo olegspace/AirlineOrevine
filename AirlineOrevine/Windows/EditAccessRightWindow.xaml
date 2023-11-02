@@ -1,0 +1,37 @@
+﻿<Window x:Class="AirlineOrevine.Windows.EditAccessRightWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Редактирование прав доступа" Height="450" Width="800">
+
+          
+    <Grid x:Name ="AccessRightGridItem" Margin="10">
+      
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.90*"></RowDefinition>
+            <RowDefinition Height="0.10*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="AccessRightGrid" CanUserAddRows="False" AutoGenerateColumns="False"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn  IsReadOnly="True" Binding="{Binding Form}" Header="Название формы"  Width="*"/>
+                <DataGridCheckBoxColumn Binding="{Binding Read}" Header="Чтение"  Width="*"/>
+                <DataGridCheckBoxColumn Binding="{Binding Write}" Header="Запись"  Width="*"/>
+                <DataGridCheckBoxColumn Binding="{Binding Edit}" Header="Редактирование"  Width="*"/>
+                <DataGridCheckBoxColumn Binding="{Binding Delete}" Header="Удаление" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="SaveAccessRightButton" Content="Сохранить" Click="SaveAccessRightButton_Click" Width="100" Height="25" />
+            <Label Content="Редактирование пользователя:" VerticalAlignment="Center" Width="Auto" />
+            <TextBox x:Name="UserLoginTextBox" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Center" Width="120"/>
+        </StackPanel>
+    </Grid>
+   
+</Window>

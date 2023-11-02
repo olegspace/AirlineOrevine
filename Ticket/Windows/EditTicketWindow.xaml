@@ -1,0 +1,115 @@
+﻿<Window x:Class="Ticket.Windows.EditTicketWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:utilities="clr-namespace:Common.Utilities;assembly=Common"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Редактирование билета" Height="450" Width="800">
+    <Window.Resources>
+        <utilities:DateTimeFormatConverter x:Key="DateTimeFormatConverter" />
+    </Window.Resources>
+    <StackPanel Margin="10" Orientation="Vertical">
+        <StackPanel>
+            <StackPanel Width="Auto" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Дата покупки" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Width="160" />
+                            <xctk:DateTimePicker Width="120" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
+                                                 Text="{Binding Path=Ticket.PurchaseDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Класс" VerticalAlignment="Center" Width="160" />
+                            <ComboBox Width="120" ItemsSource="{Binding ServiceClassColumn}"
+                                      SelectedItem="{Binding Ticket.ServiceClass}" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Место" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                            <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                                     Text="{Binding Path=Ticket.Place}" />
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Номер кассы" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Width="160" />
+                            <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                                     Text="{Binding Path=Ticket.CheckoutNumber}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Цена билета" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Width="160" />
+                            <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                                     Text="{Binding Path=Ticket.Price}" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Margin="10" Width="Auto" Height="Auto" Orientation="Vertical">
+            <StackPanel Width="Auto" Height="80">
+                <StackPanel Margin="3" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Пассажир" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                    <Button Content="Изменить" Click="AddPassengerButton_Click" Width="Auto" Cursor="Hand" />
+                </StackPanel>
+                <DataGrid x:Name="PassengerGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
+                        <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
+                        <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
+                        <DataGridTextColumn Binding="{Binding PassportSeries}" Header="Серия" Width="*" />
+                        <DataGridTextColumn Binding="{Binding PassportId}" Header="Номер" Width="*" />
+                        <DataGridTextColumn Binding="{Binding DateOfIssue}" Header="Дата получения" Width="*" />
+                        <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <StackPanel Width="Auto" Height="80">
+                <StackPanel Margin="3" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Продавец" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                    <Button Content="Изменить" Click="AddCashierButton_Click" Width="Auto" Cursor="Hand" />
+                </StackPanel>
+                <DataGrid x:Name="CashierGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
+                        <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
+                        <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
+                        <DataGridTextColumn Binding="{Binding EmployeeType}" Header="Должность" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <StackPanel Width="Auto" Height="80">
+                <StackPanel Margin="3" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Вылет" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                    <Button Content="Изменить" Click="AddDepartureButton_Click" Width="Auto" Cursor="Hand" />
+                </StackPanel>
+                <DataGrid x:Name="DepartureGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding DepartureTime}" Header="Время вылета" Width="*" />
+                        <DataGridTextColumn Binding="{Binding ArrivalTime}" Header="Время приземления" Width="*" />
+                        <DataGridTextColumn Binding="{Binding Crew.Title}" Header="Название экипажа" Width="*" />
+                        <DataGridTextColumn Binding="{Binding Flight.Route.Id}" Header="Шифр маршрута" Width="*" />
+                        <DataGridTextColumn Binding="{Binding Flight.Title}" Header="Название рейса" Width="*" />
+                        <DataGridTextColumn Binding="{Binding Flight.Route.StartingPoint.Name}"
+                                            Header="Пункт отправления" Width="*" />
+                        <DataGridTextColumn Binding="{Binding Flight.Route.EndingPoint.Name}" Header="Пункт прибытия"
+                                            Width="*" />
+                        <DataGridTextColumn Binding="{Binding Liner.Name}" Header="Название лайнера" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="Сохранить" HorizontalAlignment="Right" Click="SaveTicketButton_Click" Width="100"
+                Cursor="Hand" />
+    </StackPanel>
+</Window>

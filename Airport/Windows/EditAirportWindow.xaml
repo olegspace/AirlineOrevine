@@ -1,0 +1,30 @@
+﻿<Window x:Class="Airport.Windows.EditAirportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Редактирование аэропорта" Height="450" Width="800">
+    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+        <StackPanel Width="Auto">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Название" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                    <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="20"
+                             Text="{Binding Path=Airport.Name}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Город" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                    <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="20"
+                             Text="{Binding Path=Airport.City}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Страна" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                    <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="20"
+                             Text="{Binding Path=Airport.Country}" />
+                </StackPanel>
+
+                <Button Content="Сохранить" Click="SaveButton" Width="120" Height="20" Margin="30 10 10 0" Cursor="Hand"/>
+            </StackPanel>
+        </StackPanel>
+</Window>

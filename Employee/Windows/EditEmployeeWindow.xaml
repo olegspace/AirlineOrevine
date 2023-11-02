@@ -1,0 +1,37 @@
+﻿<Window x:Class="Employee.Windows.EditEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Редактирование сотрудника" Height="450" Width="800">
+    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+        <StackPanel Width="Auto">
+            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                <Label Content="Имя" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                         Text="{Binding Path=Employee.FirstName}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                <Label Content="Фамилия" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                         Text="{Binding Path=Employee.LastName}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                <Label Content="Отчесвто" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                         Text="{Binding Path=Employee.Patronymic}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                <Label Content="Должность" VerticalAlignment="Center" Width="160" />
+                <ComboBox Width="120" ItemsSource="{Binding EmployeeTypeColumn}"
+                          SelectedItem="{Binding Employee.EmployeeType}" />
+            </StackPanel>
+
+            <Button Content="Сохранить" Click="SaveEmployeeButton_Click" Width="120" Height="20" Margin="-10 10 10 0"
+                    Cursor="Hand" />
+        </StackPanel>
+    </StackPanel>
+</Window>

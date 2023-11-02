@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Crew\Crew.csproj" />
+    <ProjectReference Include="..\DbContext\DbContext.csproj"/>
+    <ProjectReference Include="..\Flight\Flight.csproj" />
+    <ProjectReference Include="..\Liner\Liner.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Page Update="Windows\EditDepartureWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <XamlRuntime>Wpf</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\SearchDepartureWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <XamlRuntime>Wpf</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  
+</Project>

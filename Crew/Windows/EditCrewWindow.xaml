@@ -1,0 +1,44 @@
+﻿<Window x:Class="Crew.Windows.EditCrewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Редактирование экипажа" Height="450" Width="800">
+    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+        <StackPanel Width="Auto">
+            
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Название" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                    <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                         Text="{Binding Path=Crew.Title}" />
+            
+                </StackPanel>
+
+                <Button Content="Сохранить" Click="SaveButton" Width="120" Height="20" Margin="-10 10 10 0" Cursor="Hand"/>
+          
+        </StackPanel>
+        <StackPanel Margin="10" Width="Auto">
+            <Label>
+                Сотрудники
+            </Label>
+            <DataGrid x:Name="FlightCrewGrid" AutoGenerateColumns="False" IsReadOnly="True" Width="200" Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя"
+                                        Width="auto" />
+                    <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия"
+                                        Width="auto" />
+                    <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество"
+                                        Width="auto" />
+                    <DataGridTextColumn Binding="{Binding EmployeeType}" Header="Должность"
+                                        Width="auto" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 10 10 10">
+                <Button Content="Добавить" Click="AddEmployeeButtonClick" Width="75" Margin="0 0 10 0" Cursor="Hand"/>
+                <Button Content="Удалить" Click="DeleteEmployeeButtonClick" Width="75" Cursor="Hand"/>
+            </StackPanel>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

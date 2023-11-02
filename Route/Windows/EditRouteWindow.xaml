@@ -1,0 +1,51 @@
+﻿<Window x:Class="Route.Windows.EditRouteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      
+        mc:Ignorable="d"
+        Title="Редактирование маршрута" Height="450" Width="800">
+    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+        <StackPanel>
+        <StackPanel Width="350">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Начальный пункт" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                <TextBox x:Name="StartingPointTextBox" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                         Text="{Binding Path=Route.StartingPoint.Name}" />
+                <Button Content="Выбрать" Click="AddStartingPointButton_Click" Width="60" Height="20" Margin="10 0 10 0" Cursor="Hand"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                
+                <Label Content="Конечный пункт" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                <TextBox x:Name="EndingPointTextBox" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                         Text="{Binding Path=Route.EndingPoint.Name}" />
+                <Button Content="Выбрать" Click="AddEndingPointButton_Click" Width="60" Height="20" Margin="10 0 10 0" Cursor="Hand"/>
+            </StackPanel>
+           
+
+            
+
+
+
+
+            <Button Content="Сохранить" Click="SaveRouteButton_Click" Width="100" />
+        </StackPanel>
+    </StackPanel>
+        <StackPanel Margin="10" Width="Auto">
+         
+            <DataGrid x:Name="WayPointGrid" AutoGenerateColumns="False" IsReadOnly="True" Width="200" Height="200">
+            <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Промежуточные пункты"
+                                        Width="auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 10 10 10">
+                <Button Content="Добавить" Click="AddWayPointButtonClick" Width="75" Margin="0 0 10 0" Cursor="Hand"/>
+                <Button Content="Удалить" Click="DeleteWayPointButton_Click" Width="75" Cursor="Hand"/>
+            </StackPanel>
+    </StackPanel>
+
+    </StackPanel>
+</Window>
