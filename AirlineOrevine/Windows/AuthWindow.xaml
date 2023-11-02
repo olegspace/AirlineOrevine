@@ -10,7 +10,6 @@
         <TabControl>
             <TabItem Header="Авторизация" Height="auto" FontSize="16">
                 <Viewbox>
-
                     <StackPanel Width="300" Height="auto" Margin="0 0 0 30">
                         <Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Авиакомпания Orevine</Label>
                         <Image HorizontalAlignment="Center" Source="/Windows/plane.png" />

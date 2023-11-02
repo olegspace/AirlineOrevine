@@ -39,7 +39,7 @@ public partial class MainWindow
 
     private const string PassengerTitle = "Пассажиры";
     private const string LinerTitle = "Лайнеры";
-    private const string AirportTitle = "Аэолпорты";
+    private const string AirportTitle = "Аэропорты";
     private const string EmployeeTitle = "Сотрудники";
     private const string CrewTitle = "Экипажы";
     private const string FlightTitle = "Рейсы";

@@ -5,410 +5,429 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineOrevine.Windows"
         mc:Ignorable="d"
-        Title="АИС Авиакомпания Orevine" Height="600" Width="1000" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
+        Title="АИС Авиакомпания Orevine" Height="600" Width="1000" MinWidth="600" MinHeight="600" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
 
-    <StackPanel Height="Auto">
-        <Menu Name="Menu" Height="25" VerticalAlignment="Top" Padding="10 0 10 0">
-            <Menu.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <DockPanel HorizontalAlignment="Stretch" />
-                </ItemsPanelTemplate>
-            </Menu.ItemsPanel>
+    <Grid Background="AliceBlue">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Menu Name="Menu"  FontSize="16" VerticalAlignment="Top" Padding="10 0 10 0">
         </Menu>
 
-        <TextBox Name="TitleTextBox" Text="" HorizontalAlignment="Center" BorderThickness="0"
-                 FontWeight="ExtraBold" Margin="10 10 10 0">
-        </TextBox>
+        <Grid Background="AliceBlue" Grid.Row="1" Margin="15 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>
+                <!--<RowDefinition Height="100"/>-->
+            </Grid.RowDefinitions>
 
-        <TabControl Name="TabControl" MinHeight="400" BorderThickness="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-            <TabItem x:Name="PassengerTabItem" Header="Пассажиры" Visibility="Hidden" Height="0">
-                <Grid x:Name="PassengerGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Name="UserTextBox" Text="Пользователь: " HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"
+                 FontWeight="Medium"  Margin="10 10 10 0" FontSize="16"/>
+                
+                <TextBox Grid.Column="1" Name="TitleTextBox" Text="Заголовок" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0"
+                 FontWeight="Bold" Margin="10 10 10 0" FontSize="16"/>
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <TabControl VerticalAlignment="Stretch" Background="AliceBlue"  Name="TabControl" MinHeight="400" BorderThickness="0">
+                    <TabItem x:Name="PassengerTabItem"  Header="Пассажиры" Visibility="Visible" Height="0">
+                        <Grid x:Name="PassengerGridItem" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
-                    <DataGrid x:Name="PassengerGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
-                            <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
-                            <DataGridTextColumn Binding="{Binding PassportSeries}" Header="Серия" Width="*" />
-                            <DataGridTextColumn Binding="{Binding PassportId}" Header="Номер" Width="*" />
-                            <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat={}\{0:dd/MM/yyyy\}}"
-                                                Header="Дата получения" Width="*" />
-                            <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddPassengerButton" Content="Добавить" Click="AddPassengerButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditPassengerButton" Content="Редактировать"
-                                Click="EditPassengerButton_Click"
-                                Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                        <Button x:Name="DeletePassengerButton" Content="Удалить" Click="DeletePassengerButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="FirstDocumentTabItem" Header="Авиалайнеры" Visibility="Hidden" Height="0">
-                <Grid x:Name="FirstDocumentMenuItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-
-                    <DataGrid x:Name="FirstDocumentGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
-                            <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
-                            <DataGridTextColumn Binding="{Binding PassportSeries}" Header="Серия" Width="*" />
-                            <DataGridTextColumn Binding="{Binding PassportId}" Header="Номер" Width="*" />
-                            <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat={}\{0:dd/MM/yyyy\}}"
-                                                Header="Дата получения" Width="*" />
-                            <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-
-                        <Label Content="Поиск" VerticalAlignment="Center" Width="50" />
-                        <TextBox x:Name="SearchPassengerTextBox" HorizontalAlignment="Left" TextWrapping="Wrap"
-                                 VerticalAlignment="Center" Width="120" />
-
-                        <Button Content="Искать" Click="SearchPassengerButton_Click" Width="100" Cursor="Hand"
-                                Height="25" Margin="10 0 10 0" />
-                        <Button Content="Перейти к экспорту" Click="ExportPassengerAsButton_Click" Width="140"
-                                Cursor="Hand" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="LinerTabItem" Header="Авиалайнеры" Visibility="Hidden" Height="0">
-                <Grid x:Name="LinerGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-
-                    <DataGrid x:Name="LinerGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*" />
-                            <DataGridTextColumn Binding="{Binding InspectionDate}" Header="Дата осмотра" Width="*" />
-                            <DataGridTextColumn Binding="{Binding DateOfIssue}" Header="Дата выпуска" Width="*" />
-                            <DataGridTextColumn Binding="{Binding LinerType}" Header="Тип" Width="*" />
-
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddLinerButton" Content="Добавить" Click="AddLinerButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditLinerButton" Content="Редактировать" Click="EditLinerButton_Click"
-                                Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                        <Button x:Name="DeleteLinerButton" Content="Удалить" Click="DeleteLinerButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="AirportTabItem" Header="Аэропорты" Visibility="Hidden" Height="0">
-                <Grid x:Name="AirportGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <DataGrid x:Name="AirportGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="*" />
-                            <DataGridTextColumn Binding="{Binding City}" Header="Город" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Country}" Header="Страна" Width="*" />
-
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddAirportButton" Content="Добавить" Click="AddAirportButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditAirportButton" Content="Редактировать" Click="EditAirportButton_Click"
-                                Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                        <Button x:Name="DeleteAirportButton" Content="Удалить" Click="DeleteAirportButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="RouteTabItem" Header="Маршруты" Visibility="Hidden" Height="0">
-                <Grid x:Name="RouteGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <DataGrid x:Name="RouteGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Id}" Header="Шифр" Width="*" />
-                            <DataGridTextColumn Binding="{Binding StartingPoint.Name}" Header="Начальный пункт"
-                                                Width="*" />
-                            <DataGridTextColumn Binding="{Binding EndingPoint.Name}" Header="Конечный пункт"
-                                                Width="*" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddRouteButton" Content="Добавить" Click="AddRouteButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditRouteButton" Content="Редактировать" Click="EditRouteButton_Click"
-                                Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                        <Button x:Name="DeleteRouteButton" Content="Удалить" Click="DeleteRouteButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="EmployeeTabItem" Header="Сотрудники" Visibility="Hidden" Height="0">
-                <Grid x:Name="EmployeeGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-
-                    <DataGrid x:Name="EmployeeGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
-                            <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
-                            <DataGridTextColumn Binding="{Binding EmployeeType}" Header="Должность" Width="*" />
-
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddEmployeeButton" Content="Добавить" Click="AddEmployeeButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditEmployeeButton" Content="Редактировать" Click="EditEmployeeButton_Click"
-                                Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                        <Button x:Name="DeleteEmployeeButton" Content="Удалить" Click="DeleteEmployeeButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="CrewTabItem" Header="Экипажы" Visibility="Hidden" Height="0">
-                <Grid x:Name="CrewGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <DataGrid x:Name="CrewGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Title}" Header="Название" Width="*" />
-
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddCrewButton" Content="Добавить" Click="AddCrewButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditCrewButton" Content="Редактировать" Click="EditCrewButton_Click"
-                                Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                        <Button x:Name="DeleteCrewButton" Content="Удалить" Click="DeleteCrewButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="FlightTabItem" Header="Рейсы" Visibility="Hidden" Height="0">
-                <Grid x:Name="FlightGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <DataGrid x:Name="FlightGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Title}" Header="Название" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Route.Id}" Header="Шифр маршрута" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Route.StartingPoint.Name}"
-                                                Header="Начальный пункт" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Route.EndingPoint.Name}" Header="Конечный пункт"
-                                                Width="*" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddFlightButton" Content="Добавить" Click="AddFlightButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditFlightButton" Content="Редактировать" Click="EditFlightButton_Click"
-                                Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                        <Button x:Name="DeleteFlightButton" Content="Удалить" Click="DeleteFlightButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="DepartureTabItem" Header="Вылеты" Visibility="Hidden" Height="0">
-                <Grid x:Name="DepartureGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <DataGrid x:Name="DepartureGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding DepartureTime}" Header="Время вылета" Width="*" />
-                            <DataGridTextColumn Binding="{Binding ArrivalTime}" Header="Время приземления"
-                                                Width="*" />
-                            <DataGridTextColumn Binding="{Binding Crew.Title}" Header="Название экипажа" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Flight.Route.Id}" Header="Шифр маршрута"
-                                                Width="*" />
-                            <DataGridTextColumn Binding="{Binding Flight.Title}" Header="Название рейса" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Liner.Name}" Header="Название лайнера" Width="*" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddDepartureButton" Content="Добавить" Click="AddDepartureButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditDepartureButton" Content="Редактировать"
-                                Click="EditDepartureButton_Click" Cursor="Hand" Width="100" Height="25"
-                                Margin="10 0 10 0" />
-                        <Button x:Name="DeleteDepartureButton" Content="Удалить" Click="DeleteDepartureButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="TicketTabItem" Header="Билеты" Visibility="Hidden" Height="0">
-                <Grid x:Name="TicketGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <DataGrid x:Name="TicketGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Id}" Header="Номер билета" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Passenger.LastName}" Header="Фамилия" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="*" />
-                            <DataGridTextColumn Binding="{Binding ServiceClass}" Header="Класс" Width="*" />
-                            <DataGridTextColumn Binding="{Binding CheckoutNumber}" Header="Касса" Width="10" />
-                            <DataGridTextColumn Binding="{Binding Departure.DepartureTime}" Header="Время вылета"
-                                                Width="*" />
-                            <DataGridTextColumn Binding="{Binding Departure.ArrivalTime}"
-                                                Header="Время приземления" Width="*" />
-                            <DataGridTextColumn Binding="{Binding Departure.Liner.Name}" Header="Название лайнера"
-                                                Width="*" />
-                            <DataGridTextColumn Binding="{Binding Departure.Crew.Title}" Header="Название экипажа"
-                                                Width="*" />
-                            <DataGridTextColumn Binding="{Binding Departure.Flight.Title}" Header="Название рейса"
-                                                Width="*" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="AddTicketButton" Content="Добавить" Click="AddTicketButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                        <Button x:Name="EditTicketButton" Content="Редактировать" Click="EditTicketButton_Click"
-                                Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                        <Button x:Name="DeleteTicketButton" Content="Удалить" Click="DeleteTicketButton_Click"
-                                Cursor="Hand" Width="100" Height="25" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="AdminTabItem" Header="Панель администратора" Visibility="Hidden" Height="0">
-                <Grid x:Name="AdminGridItem" Margin="10" Height="370">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.90*"></RowDefinition>
-                        <RowDefinition Height="0.10*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <DataGrid x:Name="UserGrid" CanUserAddRows="False" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" Header="Индефиктор" Width="*" />
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Login}" Header="Логин" Width="*" />
-                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Password}" Header="Хэш пароля"
-                                                Width="*" />
-                            <DataGridComboBoxColumn x:Name="UserTypeColumn" Header="Тип доступа"
-                                                    Width="*"
-                                                    SelectedItemBinding="{Binding UserType}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10 0 0">
-                        <Button x:Name="SaveUserButton" Content="Сохранить" Click="SaveUserButton_Click" Width="100"
-                                Height="25" Cursor="Hand" />
-                        <Button x:Name="EditAccessRightButton" Content="Редактировать"
-                                Click="EditAccessRightButton_Click" Width="100" Height="25" Margin="10 0 10 0"
-                                Cursor="Hand" />
-                        <Button x:Name="DeleteUserButton" Content="Удалить" Click="DeleteUserButton_Click" Width="100"
-                                Height="25" Cursor="Hand" />
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="HelpTabItem" Header="Справка" Visibility="Hidden" Height="0">
-                <Grid Margin="10" Height="370">
-                    <Grid Height="400">
-                        <StackPanel>
-                            <Label Content="Как работает программа:" Width="Auto" HorizontalAlignment="Center"
-                                   FontWeight="ExtraBold" />
-                            <TextBlock TextWrapping="Wrap">
-                                Пользователь, при разрешённых правах доступа администратором, может читать, добавлять, редактировать, удалять необходимые данные;
-                                <LineBreak />
-                                <LineBreak />
-                                Пользователь имеет возможность экспортрровать список пассажиров в эксель и ворд файл;
-                                <LineBreak />
-                                <LineBreak />
-                                У всех пользователя есть возможность для изменения пароля;<LineBreak />
-                                <LineBreak />
-                                ...
-                            </TextBlock>
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="RecoverPasswordTabItem" Header="Смена пароля" Visibility="Hidden" Height="0">
-                <Grid x:Name="RecoverPasswordGridItem" Margin="10" Height="370">
-
-                    <StackPanel Margin="0,5,0,0" Orientation="Vertical">
-                        <StackPanel HorizontalAlignment="Center">
-                            <TextBlock>
-                                Для изменения текущего пароля введите старый пароль, новый пароль и повторите новый пароль.
-                            </TextBlock>
-                        </StackPanel>
-                        <StackPanel Margin="0,10,0,0" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                                <Label Content="Старый пароль" VerticalAlignment="Center" Width="160" />
-                                <PasswordBox x:Name="OldPasswordTexBox" HorizontalAlignment="Left"
-                                             VerticalAlignment="Center" Width="140" />
+                            <DataGrid x:Name="PassengerGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding PassportSeries}" Header="Серия" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding PassportId}" Header="Номер" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat={}\{0:dd/MM/yyyy\}}"
+                                                            Header="Дата получения" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddPassengerButton" Content="Добавить" Click="AddPassengerButton_Click"
+                                            Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditPassengerButton" Content="Редактировать"
+                                            Click="EditPassengerButton_Click"
+                                            Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                <Button x:Name="DeletePassengerButton" Content="Удалить" Click="DeletePassengerButton_Click"
+                                            Cursor="Hand" Width="100" Height="25" />
                             </StackPanel>
+                        </Grid>
+                    </TabItem>
 
-                            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                                <Label Content="Новый паролль" VerticalAlignment="Center" Width="160" />
-                                <PasswordBox x:Name="NewPasswordTexBox" HorizontalAlignment="Left"
-                                             VerticalAlignment="Center" Width="140" />
+                    <TabItem x:Name="FirstDocumentTabItem" Header="Авиалайнеры" Visibility="Hidden" Height="0">
+                        <Grid x:Name="FirstDocumentMenuItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="FirstDocumentGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding PassportSeries}" Header="Серия" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding PassportId}" Header="Номер" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat={}\{0:dd/MM/yyyy\}}"
+                                                        Header="Дата получения" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+
+                                <Label Content="Поиск" VerticalAlignment="Center" Width="50" />
+                                <TextBox x:Name="SearchPassengerTextBox" HorizontalAlignment="Left" TextWrapping="Wrap"
+                                         VerticalAlignment="Center" Width="120" />
+
+                                <Button Content="Искать" Click="SearchPassengerButton_Click" Width="100" Cursor="Hand"
+                                        Height="25" Margin="10 0 10 0" />
+                                <Button Content="Перейти к экспорту" Click="ExportPassengerAsButton_Click" Width="140"
+                                        Cursor="Hand" Height="25" />
                             </StackPanel>
+                        </Grid>
+                    </TabItem>
 
-                            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                                <Label Content="Повтор нового пароля" VerticalAlignment="Center" Width="160" />
-                                <PasswordBox x:Name="ConfirmPasswordTexBox" HorizontalAlignment="Left"
-                                             VerticalAlignment="Center" Width="140" />
+                    <TabItem x:Name="LinerTabItem" Header="Авиалайнеры" Visibility="Hidden" Height="0">
+                        <Grid x:Name="LinerGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="LinerGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding InspectionDate}" Header="Дата осмотра" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding DateOfIssue}" Header="Дата выпуска" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding LinerType}" Header="Тип" Width="*" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddLinerButton" Content="Добавить" Click="AddLinerButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditLinerButton" Content="Редактировать" Click="EditLinerButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                <Button x:Name="DeleteLinerButton" Content="Удалить" Click="DeleteLinerButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
                             </StackPanel>
-                        </StackPanel>
+                        </Grid>
+                    </TabItem>
 
-                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,25,0,0"
-                                    Width="Auto" Height="50" VerticalAlignment="Top">
-                            <Button x:Name="RecoverPasswordButton" Content="Изменить"
-                                    Click="RecoverPasswordButton_Click" Width="100" Height="25" />
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
+                    <TabItem x:Name="AirportTabItem" Header="Аэропорты" Visibility="Hidden" Height="0">
+                        <Grid x:Name="AirportGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <DataGrid x:Name="AirportGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding City}" Header="Город" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Country}" Header="Страна" Width="*" />
 
-        </TabControl>
-    </StackPanel>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddAirportButton" Content="Добавить" Click="AddAirportButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditAirportButton" Content="Редактировать" Click="EditAirportButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                <Button x:Name="DeleteAirportButton" Content="Удалить" Click="DeleteAirportButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="RouteTabItem" Header="Маршруты" Visibility="Hidden" Height="0">
+                        <Grid x:Name="RouteGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <DataGrid x:Name="RouteGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Id}" Header="Шифр" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding StartingPoint.Name}" Header="Начальный пункт"
+                                                        Width="*" />
+                                    <DataGridTextColumn Binding="{Binding EndingPoint.Name}" Header="Конечный пункт"
+                                                        Width="*" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddRouteButton" Content="Добавить" Click="AddRouteButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditRouteButton" Content="Редактировать" Click="EditRouteButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                <Button x:Name="DeleteRouteButton" Content="Удалить" Click="DeleteRouteButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="EmployeeTabItem" Header="Сотрудники" Visibility="Hidden" Height="0">
+                        <Grid x:Name="EmployeeGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="EmployeeGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding EmployeeType}" Header="Должность" Width="*" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddEmployeeButton" Content="Добавить" Click="AddEmployeeButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditEmployeeButton" Content="Редактировать" Click="EditEmployeeButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                <Button x:Name="DeleteEmployeeButton" Content="Удалить" Click="DeleteEmployeeButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="CrewTabItem" Header="Экипажы" Visibility="Hidden" Height="0">
+                        <Grid x:Name="CrewGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <DataGrid x:Name="CrewGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Title}" Header="Название" Width="*" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddCrewButton" Content="Добавить" Click="AddCrewButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditCrewButton" Content="Редактировать" Click="EditCrewButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                <Button x:Name="DeleteCrewButton" Content="Удалить" Click="DeleteCrewButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="FlightTabItem" Header="Рейсы" Visibility="Hidden" Height="0">
+                        <Grid x:Name="FlightGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <DataGrid x:Name="FlightGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Title}" Header="Название" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Route.Id}" Header="Шифр маршрута" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Route.StartingPoint.Name}"
+                                                        Header="Начальный пункт" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Route.EndingPoint.Name}" Header="Конечный пункт"
+                                                        Width="*" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddFlightButton" Content="Добавить" Click="AddFlightButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditFlightButton" Content="Редактировать" Click="EditFlightButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                <Button x:Name="DeleteFlightButton" Content="Удалить" Click="DeleteFlightButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="DepartureTabItem" Header="Вылеты" Visibility="Hidden" Height="0">
+                        <Grid x:Name="DepartureGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <DataGrid x:Name="DepartureGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding DepartureTime}" Header="Время вылета" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding ArrivalTime}" Header="Время приземления"
+                                                        Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Crew.Title}" Header="Название экипажа" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Flight.Route.Id}" Header="Шифр маршрута"
+                                                        Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Flight.Title}" Header="Название рейса" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Liner.Name}" Header="Название лайнера" Width="*" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddDepartureButton" Content="Добавить" Click="AddDepartureButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditDepartureButton" Content="Редактировать"
+                                        Click="EditDepartureButton_Click" Cursor="Hand" Width="100" Height="25"
+                                        Margin="10 0 10 0" />
+                                <Button x:Name="DeleteDepartureButton" Content="Удалить" Click="DeleteDepartureButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="TicketTabItem" Header="Билеты" Visibility="Hidden" Height="0">
+                        <Grid x:Name="TicketGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <DataGrid x:Name="TicketGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Id}" Header="Номер билета" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Passenger.LastName}" Header="Фамилия" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding ServiceClass}" Header="Класс" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding CheckoutNumber}" Header="Касса" Width="10" />
+                                    <DataGridTextColumn Binding="{Binding Departure.DepartureTime}" Header="Время вылета"
+                                                        Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Departure.ArrivalTime}"
+                                                        Header="Время приземления" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Departure.Liner.Name}" Header="Название лайнера"
+                                                        Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Departure.Crew.Title}" Header="Название экипажа"
+                                                        Width="*" />
+                                    <DataGridTextColumn Binding="{Binding Departure.Flight.Title}" Header="Название рейса"
+                                                        Width="*" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Button x:Name="AddTicketButton" Content="Добавить" Click="AddTicketButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="EditTicketButton" Content="Редактировать" Click="EditTicketButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                <Button x:Name="DeleteTicketButton" Content="Удалить" Click="DeleteTicketButton_Click"
+                                        Cursor="Hand" Width="100" Height="25" />
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="AdminTabItem" Header="Панель администратора" Visibility="Hidden" Height="0">
+                        <Grid x:Name="AdminGridItem" Margin="10" Height="370">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.90*"></RowDefinition>
+                                <RowDefinition Height="0.10*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <DataGrid x:Name="UserGrid" CanUserAddRows="False" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" Header="Индефиктор" Width="*" />
+                                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Login}" Header="Логин" Width="*" />
+                                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Password}" Header="Хэш пароля"
+                                                        Width="*" />
+                                    <DataGridComboBoxColumn x:Name="UserTypeColumn" Header="Тип доступа"
+                                                            Width="*"
+                                                            SelectedItemBinding="{Binding UserType}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10 0 0">
+                                <Button x:Name="SaveUserButton" Content="Сохранить" Click="SaveUserButton_Click" Width="100"
+                                        Height="25" Cursor="Hand" />
+                                <Button x:Name="EditAccessRightButton" Content="Редактировать"
+                                        Click="EditAccessRightButton_Click" Width="100" Height="25" Margin="10 0 10 0"
+                                        Cursor="Hand" />
+                                <Button x:Name="DeleteUserButton" Content="Удалить" Click="DeleteUserButton_Click" Width="100"
+                                        Height="25" Cursor="Hand" />
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="HelpTabItem" Header="Справка" Visibility="Hidden" Height="0">
+                        <Grid Margin="10" Height="370">
+                            <Grid Height="400">
+                                <StackPanel>
+                                    <Label Content="Как работает программа:" Width="Auto" HorizontalAlignment="Center"
+                                           FontWeight="ExtraBold" />
+                                    <TextBlock TextWrapping="Wrap">
+                                        Пользователь, при разрешённых правах доступа администратором, может читать, добавлять, редактировать, удалять необходимые данные;
+                                        <LineBreak />
+                                        <LineBreak />
+                                        Пользователь имеет возможность экспортрровать список пассажиров в эксель и ворд файл;
+                                        <LineBreak />
+                                        <LineBreak />
+                                        У всех пользователя есть возможность для изменения пароля;<LineBreak />
+                                        <LineBreak />
+                                        ...
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="RecoverPasswordTabItem" Header="Смена пароля" Visibility="Hidden" Height="0">
+                        <Grid x:Name="RecoverPasswordGridItem" Margin="10" Height="370">
+
+                            <StackPanel Margin="0,5,0,0" Orientation="Vertical">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock>
+                                    Для изменения текущего пароля введите старый пароль, новый пароль и повторите новый пароль.
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Margin="0,10,0,0" HorizontalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                        <Label Content="Старый пароль" VerticalAlignment="Center" Width="160" />
+                                        <PasswordBox x:Name="OldPasswordTexBox" HorizontalAlignment="Left"
+                                                 VerticalAlignment="Center" Width="140" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                        <Label Content="Новый паролль" VerticalAlignment="Center" Width="160" />
+                                        <PasswordBox x:Name="NewPasswordTexBox" HorizontalAlignment="Left"
+                                                 VerticalAlignment="Center" Width="140" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                        <Label Content="Повтор нового пароля" VerticalAlignment="Center" Width="160" />
+                                        <PasswordBox x:Name="ConfirmPasswordTexBox" HorizontalAlignment="Left"
+                                                 VerticalAlignment="Center" Width="140" />
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,25,0,0"
+                                        Width="Auto" Height="50" VerticalAlignment="Top">
+                                    <Button x:Name="RecoverPasswordButton" Content="Изменить"
+                                        Click="RecoverPasswordButton_Click" Width="100" Height="25" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
+    </Grid>
 </Window>
