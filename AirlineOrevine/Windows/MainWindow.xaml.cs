@@ -1046,9 +1046,4 @@ public partial class MainWindow
     {
         Close();
     }
-
-    private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-
-    }
 }

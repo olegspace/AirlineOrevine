@@ -22,7 +22,7 @@
                             <PasswordBox x:Name="LoginPasswordTextBox" />
                         </StackPanel>
                         <StackPanel Margin="5">
-                            <Button Height="auto" Content="Войти" Click="LoginButtonClick"></Button>
+                            <Button Height="auto" Content="Войти" Click="LoginButtonClick"/>
                         </StackPanel>
                     </StackPanel>                
                 </Viewbox>
@@ -47,7 +47,7 @@
                             <PasswordBox x:Name="RegisterPasswordConfirmTextBox"/>
                         </StackPanel>
                         <StackPanel Margin="5">
-                            <Button Content="Зарегистрироваться" Click="RegistrButtonClick"></Button>
+                            <Button Content="Зарегистрироваться" Click="RegistrButtonClick"/>
                         </StackPanel>
                     </StackPanel>
                 </Viewbox>
