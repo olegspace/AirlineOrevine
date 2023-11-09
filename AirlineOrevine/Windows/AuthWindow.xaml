@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:AirlineOrevine.Windows"
         mc:Ignorable="d"
         Title="Аутентификация" Height="600" Width="800" MinWidth="400" MinHeight="500" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
-    <Grid>
-        <TabControl>
-            <TabItem Header="Авторизация" Height="auto" FontSize="16">
+    <Grid Background="AliceBlue">
+        <TabControl Background="AliceBlue">
+            <TabItem Background="AliceBlue" Header="Авторизация" Height="auto" FontSize="16">
                 <Viewbox>
                     <StackPanel Width="300" Height="auto" Margin="0 0 0 30">
                         <Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Авиакомпания Orevine</Label>
@@ -22,7 +22,7 @@
                             <PasswordBox x:Name="LoginPasswordTextBox" />
                         </StackPanel>
                         <StackPanel Margin="5">
-                            <Button Height="auto" Content="Войти" Click="LoginButtonClick"/>
+                            <Button Content="Войти" Click="LoginButtonClick" Style="{DynamicResource RoundedButtonStyle}"/>
                         </StackPanel>
                     </StackPanel>                
                 </Viewbox>

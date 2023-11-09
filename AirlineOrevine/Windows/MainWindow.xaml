@@ -61,8 +61,8 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddPassengerButton" Content="Добавить" Click="AddPassengerButton_Click"
-                                            Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="AddPassengerButton" Style="{StaticResource AddButton}" Click="AddPassengerButton_Click"
+                                            Cursor="Hand"/>
                                 <Button x:Name="EditPassengerButton" Content="Редактировать"
                                             Click="EditPassengerButton_Click"
                                             Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />

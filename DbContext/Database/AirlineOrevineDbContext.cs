@@ -31,7 +31,7 @@ namespace DbContext.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            bool isLocal = false;
+            bool isLocal = true;
 
             //Локальная Db
             if (isLocal)
