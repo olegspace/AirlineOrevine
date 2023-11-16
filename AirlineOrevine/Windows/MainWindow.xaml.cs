@@ -38,7 +38,7 @@ public partial class MainWindow
     private readonly AirlineOrevineDbContext _dbContext;
 
     private const string PassengerTitle = "Пассажиры";
-    private const string LinerTitle = "Лайнеры";
+    private const string LinerTitle = "Авиалайнеры";
     private const string AirportTitle = "Аэропорты";
     private const string EmployeeTitle = "Сотрудники";
     private const string CrewTitle = "Экипажы";
@@ -419,7 +419,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете пассажира для редактирования");
+            MessageBox.Show("Выберите пассажира для редактирования");
         }
     }
 
@@ -445,7 +445,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете пассажира для удаления");
+            MessageBox.Show("Выберите пассажира для удаления");
             return;
         }
 
@@ -472,7 +472,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете авиалайнер для редактирования");
+            MessageBox.Show("Выберите авиалайнер для редактирования");
         }
     }
 
@@ -490,7 +490,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете авиалайнер для удаления");
+            MessageBox.Show("Выберите авиалайнер для удаления");
             return;
         }
 
@@ -531,7 +531,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете сотрудника для редактирования");
+            MessageBox.Show("Выберите сотрудника для редактирования");
         }
     }
 
@@ -549,7 +549,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете сотрудника для удаления");
+            MessageBox.Show("Выберите сотрудника для удаления");
             return;
         }
 
@@ -576,7 +576,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете маршрут для редактирования");
+            MessageBox.Show("Выберите маршрут для редактирования");
             return;
         }
     }
@@ -595,7 +595,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете маршрут для удаления");
+            MessageBox.Show("Выберите маршрут для удаления");
             return;
         }
 
@@ -622,7 +622,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете аэропорт для редактирования");
+            MessageBox.Show("Выберите аэропорт для редактирования");
         }
     }
 
@@ -640,7 +640,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете аэропорт для удаления");
+            MessageBox.Show("Выберите аэропорт для удаления");
             return;
         }
 
@@ -667,7 +667,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете экипаж для редактирования");
+            MessageBox.Show("Выберите экипаж для редактирования");
         }
     }
 
@@ -685,7 +685,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете экипаж для удаления");
+            MessageBox.Show("Выберите экипаж для удаления");
             return;
         }
 
@@ -712,7 +712,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете рейс для редактирования");
+            MessageBox.Show("Выберите рейс для редактирования");
         }
     }
 
@@ -730,7 +730,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете рейс для удаления");
+            MessageBox.Show("Выберите рейс для удаления");
             return;
         }
 
@@ -758,7 +758,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете вылет для редактирования");
+            MessageBox.Show("Выберите вылет для редактирования");
         }
     }
 
@@ -776,7 +776,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете вылет для удаления");
+            MessageBox.Show("Выберите вылет для удаления");
             return;
         }
 
@@ -798,7 +798,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете билет для удаления");
+            MessageBox.Show("Выберите билет для удаления");
             return;
         }
 
@@ -817,7 +817,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете билет для редактирования");
+            MessageBox.Show("Выберите билет для редактирования");
         }
     }
 
@@ -840,7 +840,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете пользователя для редактирования прав");
+            MessageBox.Show("Выберите пользователя для редактирования прав");
         }
     }
 
@@ -866,7 +866,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберете пользователя для удаления");
+            MessageBox.Show("Выберите пользователя для удаления");
             return;
         }
 

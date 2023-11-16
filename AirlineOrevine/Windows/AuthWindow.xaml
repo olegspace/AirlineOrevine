@@ -22,7 +22,7 @@
                             <PasswordBox x:Name="LoginPasswordTextBox" />
                         </StackPanel>
                         <StackPanel Margin="5">
-                            <Button Content="Войти" Click="LoginButtonClick" Style="{DynamicResource RoundedButtonStyle}"/>
+                            <Button Content="Войти" Click="LoginButtonClick" Width="auto" />
                         </StackPanel>
                     </StackPanel>                
                 </Viewbox>
@@ -47,7 +47,7 @@
                             <PasswordBox x:Name="RegisterPasswordConfirmTextBox"/>
                         </StackPanel>
                         <StackPanel Margin="5">
-                            <Button Content="Зарегистрироваться" Click="RegistrButtonClick"/>
+                            <Button Content="Зарегистрироваться" Click="RegistrButtonClick" Width="auto"/>
                         </StackPanel>
                     </StackPanel>
                 </Viewbox>

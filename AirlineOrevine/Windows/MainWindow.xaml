@@ -48,7 +48,7 @@
                                 <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>                            
 
-                            <DataGrid x:Name="PassengerGrid" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20">
+                            <DataGrid x:Name="PassengerGrid">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
                                     <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
@@ -61,13 +61,11 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddPassengerButton" Style="{StaticResource AddButton}" Click="AddPassengerButton_Click"
-                                            Cursor="Hand"/>
+                                <Button x:Name="AddPassengerButton" Style="{StaticResource AddButton}" Click="AddPassengerButton_Click"/>                                            
                                 <Button x:Name="EditPassengerButton" Content="Редактировать"
                                             Click="EditPassengerButton_Click"
-                                            Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                                <Button x:Name="DeletePassengerButton" Content="Удалить" Click="DeletePassengerButton_Click"
-                                            Cursor="Hand" Width="100" Height="25" />
+                                            Margin="10 0 10 0" />
+                                <Button x:Name="DeletePassengerButton" Content="Удалить" Click="DeletePassengerButton_Click"/>                                            
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -82,7 +80,7 @@
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="FirstDocumentGrid" IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid x:Name="FirstDocumentGrid">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
                                     <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="*" />
@@ -100,10 +98,9 @@
                                 <TextBox x:Name="SearchPassengerTextBox" HorizontalAlignment="Left" TextWrapping="Wrap"
                                          VerticalAlignment="Center" Width="120" />
 
-                                <Button Content="Искать" Click="SearchPassengerButton_Click" Width="100" Cursor="Hand"
-                                        Height="25" Margin="10 0 10 0" />
-                                <Button Content="Перейти к экспорту" Click="ExportPassengerAsButton_Click" Width="140"
-                                        Cursor="Hand" Height="25" />
+                                <Button Content="Искать" Click="SearchPassengerButton_Click" Margin="10 0 10 0" />
+                                         
+                                <Button Content="Перейти к экспорту" Click="ExportPassengerAsButton_Click" />
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -128,12 +125,9 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddLinerButton" Content="Добавить" Click="AddLinerButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
-                                <Button x:Name="EditLinerButton" Content="Редактировать" Click="EditLinerButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                                <Button x:Name="DeleteLinerButton" Content="Удалить" Click="DeleteLinerButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="AddLinerButton" Content="Добавить" Click="AddLinerButton_Click" Style="{StaticResource AddButton}"/>
+                                <Button x:Name="EditLinerButton" Content="Редактировать" Click="EditLinerButton_Click" Margin="10 0 10 0" />
+                                <Button x:Name="DeleteLinerButton" Content="Удалить" Click="DeleteLinerButton_Click"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -418,7 +412,7 @@
 
                                 
                                 <Button x:Name="RecoverPasswordButton" Margin="0,25,0,25" Content="Изменить пароль"
-                                        Click="RecoverPasswordButton_Click"  Height="25" />
+                                        Click="RecoverPasswordButton_Click" Width="auto"/>
                                 
                             </StackPanel>
                             </Viewbox>
