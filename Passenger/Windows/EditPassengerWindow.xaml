@@ -4,59 +4,59 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:utilities="clr-namespace:Common.Utilities;assembly=Common"
-
         mc:Ignorable="d"
-        Title="Редактирование пассажира" Height="450" Width="800">
+        Background="AliceBlue"
+        Title="Редактирование пассажира" Height="500" Width="800" MinHeight="450" MinWidth="600" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <utilities:DateOnlyFormatConverter x:Key="DateOnlyFormatConverter" />
     </Window.Resources>
-    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
-        <StackPanel Width="500">
+    <Viewbox>
+        <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <Label Content="Имя" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Passenger.FirstName}" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="160"
+                        Text="{Binding Path=Passenger.FirstName}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Label Content="Фамилия" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Passenger.LastName}" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="160"
+                        Text="{Binding Path=Passenger.LastName}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Отчество" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Passenger.Patronymic}" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="160"
+                        Text="{Binding Path=Passenger.Patronymic}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Серия" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Passenger.PassportSeries}" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="160"
+                        Text="{Binding Path=Passenger.PassportSeries}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Номер" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Passenger.PassportId}" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="160"
+                        Text="{Binding Path=Passenger.PassportId}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Label Content="Дата выдачи" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
 
                 <DatePicker
-                    SelectedDateFormat="Short"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Width="120"
-                            Text="{Binding Path=Passenger.DateOfIssue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateOnlyFormatConverter}}" />
+                SelectedDateFormat="Short"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Width="160"
+                        Text="{Binding Path=Passenger.DateOfIssue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateOnlyFormatConverter}}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Label Content="Кем выдан" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Passenger.IssuedBy}" />
+                <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="160"
+                        Text="{Binding Path=Passenger.IssuedBy}" />
             </StackPanel>
 
-            <Button Content="Сохранить" Click="SavePassengerButton_Click" Width="120" Height="20" Margin="-10 10 10 0" Cursor="Hand"/>
+            <Button Content="Сохранить" Click="SavePassengerButton_Click" Margin="-10 10 10 0" />
         </StackPanel>
-    </StackPanel>
+    </Viewbox>
 </Window>

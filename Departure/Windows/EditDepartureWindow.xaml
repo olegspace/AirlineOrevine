@@ -6,56 +6,58 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:utilities="clr-namespace:Common.Utilities;assembly=Common"
         mc:Ignorable="d"
-        Title="Редактирование вылета" Height="450" Width="800">
+        Title="Редактирование вылета" Height="700" Width="1000" MinHeight="650" MinWidth="900" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <utilities:DateTimeFormatConverter x:Key="DateTimeFormatConverter" />
     </Window.Resources>
-    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
-        <StackPanel Width="Auto">
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Время вылета" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                <xctk:DateTimePicker Width="120" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
-                                     Text="{Binding Path=Departure.DepartureTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
 
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Время приземления" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                <xctk:DateTimePicker Width="120" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
-                                     Text="{Binding Path=Departure.ArrivalTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
-            </StackPanel>
+    <Viewbox>        
+        <StackPanel  Margin="10">
+            <StackPanel HorizontalAlignment="Center" Margin="0 20">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Лайнер" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                    <TextBox x:Name="LinerTextBox" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Departure.Liner.Name}" />
-                    <Button Content="Выбрать" Click="AddLinerButton_Click"  Width="60" Height="20" Margin="10 0 10 0" Cursor="Hand"/>
+                    <Label Content="Время вылета" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" />
+                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
+                                         Text="{Binding Path=Departure.DepartureTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Экипаж" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                    <TextBox x:Name="CrewTextBox" TextWrapping="Wrap" IsReadOnly="True"  VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Departure.Crew.Title}" />
-                    <Button Content="Выбрать" Click="AddCrewButton_Click"  Width="60" Height="20" Margin="10 0 10 0" Cursor="Hand"/>
+                <StackPanel Orientation="Horizontal" Margin="0 10">
+                    <Label Content="Время приземления" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="180" />
+                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
+                                         Text="{Binding Path=Departure.ArrivalTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
                 </StackPanel>
-
-
-                <Button Content="Сохранить" Click="SaveDepartureButton_Click" Width="120" Height="20" Margin="-10 10 10 0" Cursor="Hand"/>
+                <StackPanel Orientation="Horizontal" Margin="0 10">
+                        <Label Content="Лайнер" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" />
+                        <TextBox x:Name="LinerTextBox" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Center" Width="140"
+                             Text="{Binding Path=Departure.Liner.Name}" />
+                        <Button Content="Выбрать" Click="AddLinerButton_Click" Margin="10 0 10 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 10">
+                        <Label Content="Экипаж" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" />
+                        <TextBox x:Name="CrewTextBox" TextWrapping="Wrap" IsReadOnly="True"  VerticalAlignment="Center" Width="140"
+                             Text="{Binding Path=Departure.Crew.Title}" />
+                        <Button Content="Выбрать" Click="AddCrewButton_Click" Margin="10 0 10 0" />
+                    </StackPanel>
             </StackPanel>
 
-        <StackPanel Margin="10" Width="Auto">
-            <DataGrid x:Name="FlightGrid" AutoGenerateColumns="False" IsReadOnly="True" Width="Auto" Height="200">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Title}" Header="Название"
-                                        Width="auto" />
-                    <DataGridTextColumn Binding="{Binding Route.Id}" Header="Шифр маршрута"
-                                        Width="auto" />
-                    <DataGridTextColumn Binding="{Binding Route.StartingPoint.Name}" Header="Начальный пункт"
-                                        Width="auto" />
-                    <DataGridTextColumn Binding="{Binding Route.EndingPoint.Name}" Header="Конечный пункт"
-                                        Width="auto" />
-                </DataGrid.Columns>
-            </DataGrid>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 10 10 10">
-                <Button Content="Изменить" Click="AddFlightButton_Click" Width="Auto"/>
+            <Label Content="Маршрут" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Margin="10">
+            
+
+                <DataGrid x:Name="FlightGrid" Width="600" Height="200" Margin="50 0 0 0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Title}" Header="Название"
+                                            Width="auto" />
+                        <DataGridTextColumn Binding="{Binding Route.Id}" Header="Шифр маршрута"
+                                            Width="auto" />
+                        <DataGridTextColumn Binding="{Binding Route.StartingPoint.Name}" Header="Начальный пункт"
+                                            Width="auto" />
+                        <DataGridTextColumn Binding="{Binding Route.EndingPoint.Name}" Header="Конечный пункт"
+                                            Width="auto" />
+                    </DataGrid.Columns>
+                </DataGrid>            
+            
+                <Button Content="Изменить" Click="AddFlightButton_Click"  Margin="20"/>
             </StackPanel>
+                    <Button Content="Сохранить" Click="SaveDepartureButton_Click" Margin="0 10" />
         </StackPanel>
-    </StackPanel>
+    </Viewbox>
 </Window>

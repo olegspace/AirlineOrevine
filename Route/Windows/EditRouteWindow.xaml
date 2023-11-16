@@ -3,49 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      
         mc:Ignorable="d"
-        Title="Редактирование маршрута" Height="450" Width="800">
-    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
-        <StackPanel>
-        <StackPanel Width="350">
+        Background="AliceBlue"
+        Title="Редактирование маршрута" Height="500" Width="800" MinHeight="450" MinWidth="600" WindowStartupLocation="CenterScreen">
+    <Viewbox>
+        <StackPanel Margin="10 10 10 10">
             <StackPanel Orientation="Horizontal">
                 <Label Content="Начальный пункт" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
                 <TextBox x:Name="StartingPointTextBox" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
                          Text="{Binding Path=Route.StartingPoint.Name}" />
-                <Button Content="Выбрать" Click="AddStartingPointButton_Click" Width="60" Height="20" Margin="10 0 10 0" Cursor="Hand"/>
+                <Button Content="Выбрать" Click="AddStartingPointButton_Click"  Margin="10 0 10 0" />
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                
+            <StackPanel Orientation="Horizontal" Margin="0 10">
+
                 <Label Content="Конечный пункт" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
                 <TextBox x:Name="EndingPointTextBox" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Route.EndingPoint.Name}" />
-                <Button Content="Выбрать" Click="AddEndingPointButton_Click" Width="60" Height="20" Margin="10 0 10 0" Cursor="Hand"/>
+                        Text="{Binding Path=Route.EndingPoint.Name}" />
+                <Button Content="Выбрать" Click="AddEndingPointButton_Click" Margin="10 0 10 0"/>
             </StackPanel>
-           
-
-            
 
 
+            <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
 
+                <DataGrid x:Name="WayPointGrid" Width="400" Height="250">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="Промежуточные пункты"
+                                            Width="auto" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel  HorizontalAlignment="Center" Margin="10 10 10 10" VerticalAlignment="Center">
+                    <Button Content="Добавить" Click="AddWayPointButtonClick" />
+                    <Button Content="Удалить" Click="DeleteWayPointButton_Click" Margin="10" Style="{StaticResource DeleteButton}"/>
+                </StackPanel>
+            </StackPanel>
 
-            <Button Content="Сохранить" Click="SaveRouteButton_Click" Width="100" />
+            <Button Content="Сохранить" Click="SaveRouteButton_Click" />
         </StackPanel>
-    </StackPanel>
-        <StackPanel Margin="10" Width="Auto">
-         
-            <DataGrid x:Name="WayPointGrid" AutoGenerateColumns="False" IsReadOnly="True" Width="200" Height="200">
-            <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="Промежуточные пункты"
-                                        Width="auto" />
-            </DataGrid.Columns>
-        </DataGrid>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 10 10 10">
-                <Button Content="Добавить" Click="AddWayPointButtonClick" Width="75" Margin="0 0 10 0" Cursor="Hand"/>
-                <Button Content="Удалить" Click="DeleteWayPointButton_Click" Width="75" Cursor="Hand"/>
-            </StackPanel>
-    </StackPanel>
-
-    </StackPanel>
+    </Viewbox>
 </Window>

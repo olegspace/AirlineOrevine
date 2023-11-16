@@ -4,37 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Поиск маршрута" Height="450" Width="800">
-    <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10">
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Поиск" VerticalAlignment="Center" Width="50" />
+        Background="AliceBlue"
+        Title="Поиск маршрута" Height="500" Width="800" MinHeight="450" MinWidth="600" WindowStartupLocation="CenterScreen">
+    <Viewbox>
+        
+        <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="Поиск" VerticalAlignment="Center" />
             <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" TextWrapping="Wrap"
-                     VerticalAlignment="Center" Width="300" />
+                     VerticalAlignment="Center" Width="200" />
 
-            <Button Content="Искать" Click="SearchRouteButton_Click" Width="100" Height="20" Margin="10 0 0 0"
-                    Cursor="Hand" />
+            <Button Content="Искать" Click="SearchRouteButton_Click" Margin="10 0 0 0"/>
         </StackPanel>
 
-        <StackPanel>
-            <Grid x:Name="AirportGridItem" Height="355" Margin="0 10 0 0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.90*"></RowDefinition>
-                    <RowDefinition Height="0.10*"></RowDefinition>
-                </Grid.RowDefinitions>
+        
+        <Grid x:Name="AirportGridItem" Height="400" Margin="0 10 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.80*"></RowDefinition>
+                <RowDefinition Height="0.20*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-                <DataGrid x:Name="RouteGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding StartingPoint.Name}" Header="Начальный пугкт" Width="*" />
-                        <DataGridTextColumn Binding="{Binding EndingPoint.Name}" Header="Конечный пункт" Width="*" />
-                        <DataGridTextColumn Binding="{Binding Id}" Header="Шифр" Width="*" />
+            <DataGrid x:Name="RouteGrid" Height="400" Width="650">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding StartingPoint.Name}" Header="Начальный пугкт" Width="*" />
+                    <DataGridTextColumn Binding="{Binding EndingPoint.Name}" Header="Конечный пункт" Width="*" />
+                    <DataGridTextColumn Binding="{Binding Id}" Header="Шифр" Width="*" />
 
-                    </DataGrid.Columns>
-                </DataGrid>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Button x:Name="ChoiceRouteButton" Content="Выбрать" Click="ChoiceRouteButton_Click" Width="100"
-                            Height="20" Margin="0 10 0 0" Cursor="Hand" />
-                </StackPanel>
-            </Grid>
-        </StackPanel>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+                <Button Grid.Row="1" x:Name="ChoiceRouteButton" Content="Выбрать" Click="ChoiceRouteButton_Click" 
+                         Margin="0 10 0 0"  />            
+        </Grid>        
     </StackPanel>
+    </Viewbox>
 </Window>

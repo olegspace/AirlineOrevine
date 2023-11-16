@@ -4,35 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Редактирование рейса" Height="450" Width="800">
-    <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10">
-        <StackPanel Orientation="Horizontal">
+        Background="AliceBlue"
+        Title="Редактирование рейса" Height="500" Width="800" MinHeight="450" MinWidth="600" WindowStartupLocation="CenterScreen">
+    <Viewbox>
+        <StackPanel Orientation="Vertical" Margin="10">
+
             <StackPanel Width="350">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Название" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
                     <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Flight.Title}" />
+                        Text="{Binding Path=Flight.Title}" />
                 </StackPanel>
 
-                <Button Content="Сохранить" Click="SaveFlightButton_Click"  Width="120" Height="20" Margin="-10 10 10 0" Cursor="Hand"/>
             </StackPanel>
-       
-        <StackPanel Margin="10" Width="Auto">
-         
-            <DataGrid x:Name="RouteGrid" AutoGenerateColumns="False" IsReadOnly="True" Width="300" Height="200">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Id}" Header="Шифр"
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+
+                <DataGrid x:Name="RouteGrid" Width="500" Height="300">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" Header="Шифр"
                                         Width="*" />
-                    <DataGridTextColumn Binding="{Binding StartingPoint.Name}" Header="Начальный пункт" 
+                        <DataGridTextColumn Binding="{Binding StartingPoint.Name}" Header="Начальный пункт" 
                                         Width="*" />
-                    <DataGridTextColumn Binding="{Binding EndingPoint.Name}" Header="Конечный пункт"
+                        <DataGridTextColumn Binding="{Binding EndingPoint.Name}" Header="Конечный пункт"
                                         Width="*" />
-                </DataGrid.Columns>
-            </DataGrid>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 10 10 10">
-                <Button Content="Изменить" Click="AddRouteButton_Click" Width="75" Margin="0 0 10 0" Cursor="Hand"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 10 10 10">
+                    <Button Content="Изменить" Click="AddRouteButton_Click" Margin="0 0 10 0" />
+                </StackPanel>
             </StackPanel>
+
+            <Button Content="Сохранить" Click="SaveFlightButton_Click" Margin="20"/>
         </StackPanel>
-    </StackPanel>
-    </StackPanel>
+    </Viewbox>
 </Window>

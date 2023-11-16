@@ -113,9 +113,6 @@
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="IsReadOnly" Value="True"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>            
-        </Style>
-        
-        
-        
+        </Style> 
     </Application.Resources>
 </Application>
