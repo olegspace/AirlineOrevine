@@ -25,7 +25,7 @@
                     </Grid.RowDefinitions>
                     <DataGrid x:Name="DepartureGrid" >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding DepartureTime}" Header="Время вылета" Width="*" FontSize="10"/>
+                            <DataGridTextColumn Binding="{Binding DepartureTime}" Header="Время вылета" Width="*"/>
                             <DataGridTextColumn Binding="{Binding ArrivalTime}" Header="Время приземления" Width="*"/>
                             <DataGridTextColumn Binding="{Binding Crew.Title}" Header="Название экипажа" Width="*"/>
                             <DataGridTextColumn Binding="{Binding Flight.Route.Id}" Header="Шифр маршрута" Width="*"/>

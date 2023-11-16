@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Редактирование прав доступа" Height="450" Width="800">
+        Background="AliceBlue"
+        Title="Редактирование прав доступа" Height="500" Width="800" MinHeight="450" MinWidth="700" WindowStartupLocation="CenterScreen">
 
           
     <Grid x:Name ="AccessRightGridItem" Margin="10">
@@ -27,10 +28,10 @@
                 <DataGridCheckBoxColumn Binding="{Binding Delete}" Header="Удаление" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="SaveAccessRightButton" Content="Сохранить" Click="SaveAccessRightButton_Click" />
             <TextBlock Text="Редактирование пользователя:" VerticalAlignment="Center" Margin="20 0 10 0"/>
-            <TextBox x:Name="UserLoginTextBox" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="UserLoginTextBox" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Center" Width="120" FontSize="20"/>
         </StackPanel>
     </Grid>
    

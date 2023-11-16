@@ -42,7 +42,7 @@
             <StackPanel Orientation="Horizontal">
                 <Label Content="Дата выдачи" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
 
-                <DatePicker
+                <DatePicker                
                 SelectedDateFormat="Short"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -56,7 +56,7 @@
                         Text="{Binding Path=Passenger.IssuedBy}" />
             </StackPanel>
 
-            <Button Content="Сохранить" Click="SavePassengerButton_Click" Margin="-10 10 10 0" />
+            <Button Content="Сохранить" Click="SavePassengerButton_Click" Margin="10"/>
         </StackPanel>
     </Viewbox>
 </Window>
