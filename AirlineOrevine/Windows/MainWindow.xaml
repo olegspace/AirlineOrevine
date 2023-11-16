@@ -20,11 +20,10 @@
         <Grid Background="AliceBlue" Grid.Row="1" Margin="15 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
-                <RowDefinition/>
-                <!--<RowDefinition Height="100"/>-->
+                <RowDefinition/>                
             </Grid.RowDefinitions>
 
-            <Grid>
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -60,12 +59,12 @@
                                     <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
                                 <Button x:Name="AddPassengerButton" Style="{StaticResource AddButton}" Click="AddPassengerButton_Click"/>                                            
                                 <Button x:Name="EditPassengerButton" Content="Редактировать"
                                             Click="EditPassengerButton_Click"
-                                            Margin="10 0 10 0" />
-                                <Button x:Name="DeletePassengerButton" Content="Удалить" Click="DeletePassengerButton_Click"/>                                            
+                                            Margin="30 0 30 0" />
+                                <Button x:Name="DeletePassengerButton" Click="DeletePassengerButton_Click" Style="{StaticResource DeleteButton}"/>                                            
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -73,12 +72,9 @@
                     <TabItem x:Name="FirstDocumentTabItem" Header="Авиалайнеры" Visibility="Hidden" Height="0">
                         <Grid x:Name="FirstDocumentMenuItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
+                            </Grid.RowDefinitions>                            
 
                             <DataGrid x:Name="FirstDocumentGrid">
                                 <DataGrid.Columns>
@@ -92,14 +88,14 @@
                                     <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
 
-                                <Label Content="Поиск" VerticalAlignment="Center" Width="50" />
-                                <TextBox x:Name="SearchPassengerTextBox" HorizontalAlignment="Left" TextWrapping="Wrap"
-                                         VerticalAlignment="Center" Width="120" />
-
-                                <Button Content="Искать" Click="SearchPassengerButton_Click" Margin="10 0 10 0" />
+                                <TextBlock Text="Поиск" VerticalAlignment="Center" Width="50" />
+                                <TextBox x:Name="SearchPassengerTextBox" TextWrapping="Wrap" VerticalAlignment="Center" 
+                                         Width="120" Margin="10"/>
                                          
+
+                                <Button Content="Искать" Click="SearchPassengerButton_Click" Margin="30 0 30 0" />                                         
                                 <Button Content="Перейти к экспорту" Click="ExportPassengerAsButton_Click" />
                             </StackPanel>
                         </Grid>
@@ -108,13 +104,10 @@
                     <TabItem x:Name="LinerTabItem" Header="Авиалайнеры" Visibility="Hidden" Height="0">
                         <Grid x:Name="LinerGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-
+                            
                             <DataGrid x:Name="LinerGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*" />
@@ -124,7 +117,7 @@
 
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
                                 <Button x:Name="AddLinerButton" Content="Добавить" Click="AddLinerButton_Click" Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditLinerButton" Content="Редактировать" Click="EditLinerButton_Click" Margin="10 0 10 0" />
                                 <Button x:Name="DeleteLinerButton" Content="Удалить" Click="DeleteLinerButton_Click" Style="{StaticResource DeleteButton}"/>

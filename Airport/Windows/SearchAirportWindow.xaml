@@ -4,38 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Поиск аэропорта" Height="450" Width="800">
+        Title="Поиск аэропорта" Height="500" Width="800">
 
     <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10">
         <StackPanel Orientation="Horizontal">
-            <Label Content="Поиск" VerticalAlignment="Center" Width="50" />
-            <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" TextWrapping="Wrap"
-                     VerticalAlignment="Center" Width="300" />
+            <TextBlock Text="Поиск" VerticalAlignment="Center" Width="50" />
+            <TextBox x:Name="SearchTextBox" TextWrapping="Wrap" VerticalAlignment="Center"
+                      Width="300" Margin="10 0 30 0"/>
 
-            <Button Content="Искать" Click="SearchAirportButton_Click" Width="100" Height="20" Margin="10 0 0 0" Cursor="Hand" />
+            <Button Content="Искать" Click="SearchAirportButton_Click" />
         </StackPanel>
+        
+        <Grid x:Name="AirportGridItem" MinHeight="400" Margin="0 10 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.80*"></RowDefinition>
+                <RowDefinition Height="0.20*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <StackPanel>
-            <Grid x:Name="AirportGridItem" Height="355" Margin="0 10 0 0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.90*"></RowDefinition>
-                    <RowDefinition Height="0.10*"></RowDefinition>
-                </Grid.RowDefinitions>
 
-
-                <DataGrid x:Name="AirportGrid" IsReadOnly="True" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="*" />
-                        <DataGridTextColumn Binding="{Binding City}" Header="Город" Width="*" />
-                        <DataGridTextColumn Binding="{Binding Country}" Header="Страна" Width="*" />
-
-                    </DataGrid.Columns>
-                </DataGrid>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Button x:Name="ChoiceButton" Content="Выбрать" Click="ChoiseAirportButton_Click" Width="100" Height="20"
-                            Margin="0 10 0 0" Cursor="Hand" />
-                </StackPanel>
-            </Grid>
-        </StackPanel>
+            <DataGrid x:Name="AirportGrid">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="*" />
+                    <DataGridTextColumn Binding="{Binding City}" Header="Город" Width="*" />
+                    <DataGridTextColumn Binding="{Binding Country}" Header="Страна" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal" Margin="10">
+                <Button x:Name="ChoiceButton" Content="Выбрать" Click="ChoiseAirportButton_Click"/>
+            </StackPanel>
+        </Grid>        
     </StackPanel>
 </Window>
