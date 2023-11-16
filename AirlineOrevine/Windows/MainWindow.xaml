@@ -127,7 +127,7 @@
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
                                 <Button x:Name="AddLinerButton" Content="Добавить" Click="AddLinerButton_Click" Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditLinerButton" Content="Редактировать" Click="EditLinerButton_Click" Margin="10 0 10 0" />
-                                <Button x:Name="DeleteLinerButton" Content="Удалить" Click="DeleteLinerButton_Click"/>
+                                <Button x:Name="DeleteLinerButton" Content="Удалить" Click="DeleteLinerButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -147,12 +147,12 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddAirportButton" Content="Добавить" Click="AddAirportButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="AddAirportButton" Content="Добавить" Click="AddAirportButton_Click" 
+                                        Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditAirportButton" Content="Редактировать" Click="EditAirportButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                        Margin="10 0 10 0" />
                                 <Button x:Name="DeleteAirportButton" Content="Удалить" Click="DeleteAirportButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                        Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -175,11 +175,11 @@
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
                                 <Button x:Name="AddRouteButton" Content="Добавить" Click="AddRouteButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                        Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditRouteButton" Content="Редактировать" Click="EditRouteButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
+                                        Margin="10 0 10 0" />
                                 <Button x:Name="DeleteRouteButton" Content="Удалить" Click="DeleteRouteButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                        Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -204,12 +204,10 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddEmployeeButton" Content="Добавить" Click="AddEmployeeButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="AddEmployeeButton" Click="AddEmployeeButton_Click" Style="{StaticResource AddButton}"/>                                         
                                 <Button x:Name="EditEmployeeButton" Content="Редактировать" Click="EditEmployeeButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                                <Button x:Name="DeleteEmployeeButton" Content="Удалить" Click="DeleteEmployeeButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                         Margin="10 0 10 0" />
+                                <Button x:Name="DeleteEmployeeButton" Click="DeleteEmployeeButton_Click" Style="{StaticResource DeleteButton}"/>                                         
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -227,12 +225,10 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddCrewButton" Content="Добавить" Click="AddCrewButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="AddCrewButton" Click="AddCrewButton_Click" Style="{StaticResource AddButton}" />
                                 <Button x:Name="EditCrewButton" Content="Редактировать" Click="EditCrewButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                                <Button x:Name="DeleteCrewButton" Content="Удалить" Click="DeleteCrewButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                         Margin="10 0 10 0" />
+                                <Button x:Name="DeleteCrewButton"  Click="DeleteCrewButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -254,12 +250,10 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddFlightButton" Content="Добавить" Click="AddFlightButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="AddFlightButton" Click="AddFlightButton_Click" Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditFlightButton" Content="Редактировать" Click="EditFlightButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                                <Button x:Name="DeleteFlightButton" Content="Удалить" Click="DeleteFlightButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                         Margin="10 0 10 0" />
+                                <Button x:Name="DeleteFlightButton"  Click="DeleteFlightButton_Click" Style="{StaticResource DeleteButton}" />
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -283,13 +277,11 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddDepartureButton" Content="Добавить" Click="AddDepartureButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="AddDepartureButton" Click="AddDepartureButton_Click" Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditDepartureButton" Content="Редактировать"
-                                        Click="EditDepartureButton_Click" Cursor="Hand" Width="100" Height="25"
+                                        Click="EditDepartureButton_Click"
                                         Margin="10 0 10 0" />
-                                <Button x:Name="DeleteDepartureButton" Content="Удалить" Click="DeleteDepartureButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="DeleteDepartureButton" Click="DeleteDepartureButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -320,12 +312,10 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddTicketButton" Content="Добавить" Click="AddTicketButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                <Button x:Name="AddTicketButton" Click="AddTicketButton_Click" Style="{StaticResource AddButton}" />
                                 <Button x:Name="EditTicketButton" Content="Редактировать" Click="EditTicketButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" Margin="10 0 10 0" />
-                                <Button x:Name="DeleteTicketButton" Content="Удалить" Click="DeleteTicketButton_Click"
-                                        Cursor="Hand" Width="100" Height="25" />
+                                         Margin="10 0 10 0" />
+                                <Button x:Name="DeleteTicketButton" Click="DeleteTicketButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -348,13 +338,11 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10 0 0">
-                                <Button x:Name="SaveUserButton" Content="Сохранить" Click="SaveUserButton_Click" Width="100"
-                                        Height="25" Cursor="Hand" />
+                                <Button x:Name="SaveUserButton" Content="Сохранить" Click="SaveUserButton_Click"
+                                        />
                                 <Button x:Name="EditAccessRightButton" Content="Редактировать"
-                                        Click="EditAccessRightButton_Click" Width="100" Height="25" Margin="10 0 10 0"
-                                        Cursor="Hand" />
-                                <Button x:Name="DeleteUserButton" Content="Удалить" Click="DeleteUserButton_Click" Width="100"
-                                        Height="25" Cursor="Hand" />
+                                        Click="EditAccessRightButton_Click"  Margin="10 0 10 0"/>
+                                <Button x:Name="DeleteUserButton" Click="DeleteUserButton_Click"  Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
