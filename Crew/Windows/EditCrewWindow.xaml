@@ -4,25 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Редактирование экипажа" Height="450" Width="800">
-    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
-        <StackPanel Width="Auto">
-            
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Название" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+        Title="Редактирование экипажа" Height="500" Width="800" MinHeight="450" MinWidth="750" WindowStartupLocation="CenterScreen">
+    <Viewbox>
+        <StackPanel  Margin="10 10 10 10">
+        <StackPanel VerticalAlignment="Center">            
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label Content="Название экипажа" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" />
                     <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
-                         Text="{Binding Path=Crew.Title}" />
-            
-                </StackPanel>
-
-                <Button Content="Сохранить" Click="SaveButton" Width="120" Height="20" Margin="-10 10 10 0" Cursor="Hand"/>
+                         Text="{Binding Path=Crew.Title}" />            
+                </StackPanel>                
           
         </StackPanel>
-        <StackPanel Margin="10" Width="Auto">
-            <Label>
+            <TextBlock FontWeight="Medium" Margin="0 20 0 0" HorizontalAlignment="Center">
                 Сотрудники
-            </Label>
-            <DataGrid x:Name="FlightCrewGrid" AutoGenerateColumns="False" IsReadOnly="True" Width="200" Height="200">
+            </TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" Width="Auto">
+            <DataGrid x:Name="FlightCrewGrid" MinWidth="500" Height="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя"
                                         Width="auto" />
@@ -34,11 +31,12 @@
                                         Width="auto" />
                 </DataGrid.Columns>
             </DataGrid>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 10 10 10">
-                <Button Content="Добавить" Click="AddEmployeeButtonClick" Width="75" Margin="0 0 10 0" Cursor="Hand"/>
-                <Button Content="Удалить" Click="DeleteEmployeeButtonClick" Width="75" Cursor="Hand"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 10 10 10">
+                <Button Content="Добавить" Click="AddEmployeeButtonClick"/>
+                <Button Content="Удалить" Click="DeleteEmployeeButtonClick" Style="{StaticResource DeleteButton}" Margin="0 20 0 0"/>
             </StackPanel>
         </StackPanel>
-
-    </StackPanel>
+        <Button Content="Сохранить" Click="SaveButton" Margin="20"/>
+    </StackPanel>        
+    </Viewbox>    
 </Window>

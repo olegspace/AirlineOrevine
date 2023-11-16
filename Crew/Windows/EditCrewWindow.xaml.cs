@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using DbContext.Database;
 using Employee.Windows;
 using Microsoft.EntityFrameworkCore;
@@ -15,18 +16,22 @@ namespace Crew.Windows
         private bool IsNewCrew{ get; set; } = false;
         public EditCrewWindow(AirlineOrevineDbContext dbContext, CrewDb crew, bool isNewCrew)
         {
+            Cursor = Cursors.Wait;
             InitializeComponent();
             _dbContext = dbContext;
             DataContext = this;
             Crew = crew;
-            IsNewCrew = isNewCrew;
+            IsNewCrew = isNewCrew;            
             RefreshFlightCrewtGrid();
+            Cursor = Cursors.Arrow;
         }
 
         private void RefreshFlightCrewtGrid()
         {
+            Cursor = Cursors.Wait;
             FlightCrewGrid.ItemsSource = Crew.Employees?.ToList();
             FlightCrewGrid.Items.Refresh();
+            Cursor = Cursors.Arrow;
         }
 
         private void DeleteEmployeeButtonClick(object sender, RoutedEventArgs e)
@@ -45,7 +50,7 @@ namespace Crew.Windows
         }
 
         private void AddEmployeeButtonClick(object sender, RoutedEventArgs e)
-        {
+        {            
             var searchEmployeeWindow = new SearchEmployeeWindow(_dbContext, Crew);
             searchEmployeeWindow.ShowDialog();
             RefreshFlightCrewtGrid();
@@ -54,7 +59,7 @@ namespace Crew.Windows
     
 
         private void SaveButton(object sender, RoutedEventArgs e)
-        {
+        {            
             if (Crew.Title == null)
             {
                 MessageBox.Show("Укажите название экипажа");

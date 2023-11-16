@@ -4,27 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Редактирование аэропорта" Height="450" Width="800">
-    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
-        <StackPanel Width="Auto">
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Название" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                    <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="20"
-                             Text="{Binding Path=Airport.Name}" />
-                </StackPanel>
+        Title="Редактирование аэропорта" Height="600" Width="800" MinWidth="600" MinHeight="550" WindowStartupLocation="CenterScreen">
 
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Город" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                    <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="20"
-                             Text="{Binding Path=Airport.City}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Страна" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
-                    <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="20"
-                             Text="{Binding Path=Airport.Country}" />
-                </StackPanel>
+    <Viewbox>
+        <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" Width="220" Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-                <Button Content="Сохранить" Click="SaveButton" Width="120" Height="20" Margin="30 10 10 0" Cursor="Hand"/>
-            </StackPanel>
+                <Label Grid.Row="0" Content="Название" HorizontalAlignment="Right"/>
+                <TextBox Grid.Column="1"  VerticalAlignment="Center" TextWrapping="Wrap"
+                             HorizontalAlignment="Left" Width="100" Text="{Binding Path=Airport.Name}" />
+
+                <Label Grid.Row="1" Content="Город" HorizontalAlignment="Right"/>
+                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" 
+                             HorizontalAlignment="Left" Width="100" Text="{Binding Path=Airport.City}"/>
+
+                <Label Grid.Row="2" Content="Страна" HorizontalAlignment="Right"/>
+                <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" 
+                             HorizontalAlignment="Left" Width="100" Text="{Binding Path=Airport.Country}"/>
+            </Grid>
+
+            <Button Content="Сохранить" Margin="10 10 10 10"  Click="SaveButton" Width="auto" Height="auto"/>
         </StackPanel>
+    </Viewbox>
 </Window>

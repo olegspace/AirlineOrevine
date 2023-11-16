@@ -65,6 +65,7 @@ public partial class MainWindow
 
     public MainWindow(AirlineOrevineDbContext dbContext, User user)
     {
+        Cursor = Cursors.Wait;
         InitializeComponent();
         _dbContext = dbContext;
         DataContext = this;
@@ -97,6 +98,7 @@ public partial class MainWindow
         RefreshFirstDocumentGrid();
 
         Closing += MainWindow_Closing;
+        Cursor = Cursors.Arrow;
     }
 
     private void InitAccesRights()
