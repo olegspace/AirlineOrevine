@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineOrevine.Windows"
         mc:Ignorable="d"
-        Title="Аутентификация" Height="600" Width="800" MinWidth="400" MinHeight="500" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
+        Title="Аутентификация" Height="600" Width="800" MinWidth="750" MinHeight="500" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
     <Grid Background="AliceBlue">
         <TabControl Background="AliceBlue">
             <TabItem Background="AliceBlue" Header="Авторизация" Height="auto" FontSize="16">
                 <Viewbox>
-                    <StackPanel Width="300" Height="auto" Margin="0 0 0 30">
+                    <StackPanel Width="300" Margin="0 0 0 40">
                         <Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Авиакомпания Orevine</Label>
                         <Image HorizontalAlignment="Center" Source="/Windows/plane.png" />
                         <StackPanel Margin="5">
@@ -24,34 +24,37 @@
                         <StackPanel Margin="5">
                             <Button Content="Войти" Click="LoginButtonClick" Width="auto" />
                         </StackPanel>
-                    </StackPanel>                
+                    </StackPanel>
                 </Viewbox>
             </TabItem>
 
-            <TabItem Header="Регистрация" Height="auto" FontSize="16">
-                <Viewbox>
-                    <StackPanel Width="300" Margin="0 0 0 30">
-                        <Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Авиакомпания Orevine</Label>
-                        <Image HorizontalAlignment="Center" Source="/Windows/plane.png"/>
+            <TabItem Header="Регистрация" Height="auto" FontSize="16">                
+                    <Viewbox>
+                        <StackPanel Width="300" Margin="0 0 0 30">
+                            <Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Авиакомпания Orevine</Label>
+                            <Image HorizontalAlignment="Center" Source="/Windows/plane.png"/>
 
-                        <StackPanel Margin="5">
-                            <Label>Логин</Label>
-                            <TextBox x:Name="RegisterLoginTextBox"></TextBox>
+                            <StackPanel Margin="5">
+                                <Label>Логин</Label>
+                                <TextBox x:Name="RegisterLoginTextBox"></TextBox>
+                            </StackPanel>
+                            <StackPanel Margin="5">
+                                <Label>Пароль</Label>
+                                <PasswordBox x:Name="RegisterPasswordTextBox"/>
+                            </StackPanel>
+                            <StackPanel Margin="5">
+                                <Label>Подтвержение пароля</Label>
+                                <PasswordBox x:Name="RegisterPasswordConfirmTextBox"/>
+                            </StackPanel>
+                            <StackPanel Margin="5">
+                                <Button Content="Зарегистрироваться" Click="RegisterButtonClick" Width="auto"/>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Margin="5">
-                            <Label>Пароль</Label>
-                            <PasswordBox x:Name="RegisterPasswordTextBox"/>
-                        </StackPanel>
-                        <StackPanel Margin="5">
-                            <Label>Подтвержение пароля</Label>
-                            <PasswordBox x:Name="RegisterPasswordConfirmTextBox"/>
-                        </StackPanel>
-                        <StackPanel Margin="5">
-                            <Button Content="Зарегистрироваться" Click="RegistrButtonClick" Width="auto"/>
-                        </StackPanel>
-                    </StackPanel>
-                </Viewbox>
+                    </Viewbox>                
             </TabItem>            
         </TabControl>
+        
+        <TextBlock HorizontalAlignment="Left"  Margin="30 0,0,10" Name="LanguageTextBlock" Text="Язык раскладки: " VerticalAlignment="Bottom" />
+        <TextBlock HorizontalAlignment="Right" Margin="0 0 30 10" Name="CapsLockTextBlock" Text="Клавиша Caps Lock" VerticalAlignment="Bottom" TextAlignment="Right"/>
     </Grid>
 </Window>

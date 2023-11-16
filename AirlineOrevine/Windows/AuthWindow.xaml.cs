@@ -24,23 +24,51 @@ namespace AirlineOrevine.Windows
         public AuthWindow()
         {
             InitializeComponent();
+
+            EventManager.RegisterClassHandler(typeof(Window), KeyDownEvent, new KeyEventHandler(MainKeyDown));
+            LanguageTextBlock.Text = "Язык раскладки: " + Language.GetEquivalentCulture().DisplayName;
+            CapsLockTextBlock.Text = "Клавиша Caps Lock нажата";
+            bool isCapsLockToggled = Keyboard.IsKeyToggled(Key.CapsLock);
+            if (isCapsLockToggled)
+                CapsLockTextBlock.Text = "Клавиша Caps Lock нажата";
+            else
+                CapsLockTextBlock.Text = "";
+            InputLanguageManager.Current.InputLanguageChanged +=
+                   new InputLanguageEventHandler((sender, e) =>
+                   {
+                       LanguageTextBlock.Text = "Язык раскладки: " + e.NewLanguage.DisplayName;
+                   });
+
             _dbContext = new AirlineOrevineDbContext();
             DataContext = this;
         }
 
-        private AccessRight AddAccessRight(bool v1, bool v2, bool v3, bool v4, FormTypes formType)
+        private void MainKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.CapsLock)
+            {
+                bool isCapsLockToggled = Keyboard.IsKeyToggled(Key.CapsLock);
+                if (isCapsLockToggled)
+                    CapsLockTextBlock.Text = "Клавиша Caps Lock нажата";
+                else
+                    CapsLockTextBlock.Text = "";
+            }
+        }
+
+
+        private AccessRight AddAccessRight(bool isRead, bool isWrite, bool isEdit, bool isDelete, FormTypes formType)
         {
             AccessRight = new AccessRight();
-            AccessRight.Read = v1;
-            AccessRight.Write = v2;
-            AccessRight.Edit = v3;
-            AccessRight.Delete = v4;
+            AccessRight.Read = isRead;
+            AccessRight.Write = isWrite;
+            AccessRight.Edit = isEdit;
+            AccessRight.Delete = isDelete;
 
             AccessRight.Form = formType;
             return AccessRight;
         }
 
-        private void RegistrButtonClick(object sender, RoutedEventArgs e)
+        private void RegisterButtonClick(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -123,8 +151,8 @@ namespace AirlineOrevine.Windows
                 Cursor = Cursors.Arrow;
             }
         }
-
-        private void LoginButtonClick(object sender, RoutedEventArgs e)
+        
+        private void Login()
         {
             try
             {
@@ -144,7 +172,6 @@ namespace AirlineOrevine.Windows
                 var login = UserLoginTextBox.Text;
                 var passwordHash = PasswordEncrypter.GetHash(LoginPasswordTextBox.Password);
 
-                Cursor = Cursors.Wait;
                 User? user = _dbContext.Users
                     .Include(x => x.AccessRights)
                     .FirstOrDefault(u => u.Login == login && u.Password == passwordHash);
@@ -169,6 +196,10 @@ namespace AirlineOrevine.Windows
             {
                 Cursor = Cursors.Arrow;
             }
+        }
+        private void LoginButtonClick(object sender, RoutedEventArgs e)
+        {
+            Login();
         }
     }
 }

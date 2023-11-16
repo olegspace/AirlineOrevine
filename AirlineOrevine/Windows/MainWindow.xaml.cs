@@ -72,6 +72,7 @@ public partial class MainWindow
 
         TabControl.SelectedItem = HelpTabItem;
         TitleTextBox.Text = HelpTitle;
+        UserNameTextBox.Text = user.Login;
 
         InitMenuItems();
 
@@ -858,7 +859,7 @@ public partial class MainWindow
                     }
                     else
                     {
-                        MessageBox.Show("Вы не можете удалить администратора");
+                        MessageBox.Show("Администратора нельзя удалить");
                         return;
                     }
                 }
@@ -1026,8 +1027,8 @@ public partial class MainWindow
 
     public void OpenRecoverPasswordButton_Click(object sender, RoutedEventArgs e)
     {
-        TabControl.SelectedItem = RecoverPasswordTabItem;
-        TitleTextBox.Text = RecoverPasswordTitle;
+        TabControl.SelectedItem = RecoverPasswordTabItem;        
+        TitleTextBox.Text = "";    
     }
 
     public void OpenAdminButton_Click(object sender, RoutedEventArgs e)

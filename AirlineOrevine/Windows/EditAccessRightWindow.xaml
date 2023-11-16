@@ -11,14 +11,14 @@
       
        
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.90*"></RowDefinition>
-            <RowDefinition Height="0.10*"></RowDefinition>
+            <RowDefinition Height="0.80*"></RowDefinition>
+            <RowDefinition Height="0.20*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="AccessRightGrid" CanUserAddRows="False" AutoGenerateColumns="False"  >
+        <DataGrid x:Name="AccessRightGrid" CanUserAddRows="False" IsReadOnly="False">
             <DataGrid.Columns>
                 <DataGridTextColumn  IsReadOnly="True" Binding="{Binding Form}" Header="Название формы"  Width="*"/>
                 <DataGridCheckBoxColumn Binding="{Binding Read}" Header="Чтение"  Width="*"/>
@@ -28,8 +28,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button x:Name="SaveAccessRightButton" Content="Сохранить" Click="SaveAccessRightButton_Click" Width="100" Height="25" />
-            <Label Content="Редактирование пользователя:" VerticalAlignment="Center" Width="Auto" />
+            <Button x:Name="SaveAccessRightButton" Content="Сохранить" Click="SaveAccessRightButton_Click" />
+            <TextBlock Text="Редактирование пользователя:" VerticalAlignment="Center" Margin="20 0 10 0"/>
             <TextBox x:Name="UserLoginTextBox" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Center" Width="120"/>
         </StackPanel>
     </Grid>

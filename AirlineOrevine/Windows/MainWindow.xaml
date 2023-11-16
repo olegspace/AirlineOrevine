@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineOrevine.Windows"
         mc:Ignorable="d"
-        Title="АИС Авиакомпания Orevine" Height="600" Width="1000" MinWidth="600" MinHeight="600" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
+        Title="АИС Авиакомпания Orevine" Height="600" Width="1000" MinWidth="700" MinHeight="600" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
 
     <Grid Background="AliceBlue">
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
@@ -20,24 +20,20 @@
         <Grid Background="AliceBlue" Grid.Row="1" Margin="15 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
-                <RowDefinition/>                
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                 
-                
-                <TextBox Grid.Column="0" Name="UserTextBox" Text="Пользователь: " HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"
-                 FontWeight="Medium"  Margin="10 10 10 0" FontSize="20"/>
-                
-                <TextBox Grid.Column="1" Name="TitleTextBox" Text="Заголовок" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0"
-                 FontWeight="Bold" Margin="10 10 10 0" FontSize="20"/>
+            <Grid Grid.Row="0">   
+                <StackPanel Orientation="Horizontal" Panel.ZIndex="2">
+                    <TextBox  Name="UserTextBox" Text="Пользователь: " HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"
+                             FontWeight="Medium"  Margin="10 10 0 0" FontSize="20" Background="AliceBlue"/>
+                    <TextBox  x:Name="UserNameTextBox" Text="User" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"
+                             FontWeight="Regular" FontSize="20" Background="AliceBlue" Margin="0 10 0 0" Panel.ZIndex="100"/>                    
+                </StackPanel>                  
+                <TextBox Name="TitleTextBox" Text="Заголовок" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0"
+                 FontWeight="Bold" Margin="10 10 10 0" FontSize="20" Background="AliceBlue" Panel.ZIndex="1"/>
             </Grid>
-            
+
             <Grid Grid.Row="1">
                 <TabControl VerticalAlignment="Stretch" Background="AliceBlue"  Name="TabControl" MinHeight="400" BorderThickness="0">
                     <TabItem x:Name="PassengerTabItem"  Header="Пассажиры" Visibility="Visible" Height="0">
@@ -45,7 +41,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0.80*"></RowDefinition>
                                 <RowDefinition Height="0.20*"></RowDefinition>
-                            </Grid.RowDefinitions>                            
+                            </Grid.RowDefinitions>
 
                             <DataGrid x:Name="PassengerGrid">
                                 <DataGrid.Columns>
@@ -60,11 +56,11 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddPassengerButton" Style="{StaticResource AddButton}" Click="AddPassengerButton_Click"/>                                            
+                                <Button x:Name="AddPassengerButton" Style="{StaticResource AddButton}" Click="AddPassengerButton_Click"/>
                                 <Button x:Name="EditPassengerButton" Content="Редактировать"
                                             Click="EditPassengerButton_Click"
                                             Margin="30 0 30 0" />
-                                <Button x:Name="DeletePassengerButton" Click="DeletePassengerButton_Click" Style="{StaticResource DeleteButton}"/>                                            
+                                <Button x:Name="DeletePassengerButton" Click="DeletePassengerButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -74,7 +70,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0.80*"></RowDefinition>
                                 <RowDefinition Height="0.20*"></RowDefinition>
-                            </Grid.RowDefinitions>                            
+                            </Grid.RowDefinitions>
 
                             <DataGrid x:Name="FirstDocumentGrid">
                                 <DataGrid.Columns>
@@ -93,10 +89,10 @@
                                 <TextBlock Text="Поиск" VerticalAlignment="Center" Width="50" />
                                 <TextBox x:Name="SearchPassengerTextBox" TextWrapping="Wrap" VerticalAlignment="Center" 
                                          Width="120" Margin="10"/>
-                                         
 
-                                <Button Content="Искать" Click="SearchPassengerButton_Click" Margin="30 0 30 0" />                                         
-                                <Button Content="Перейти к экспорту" Click="ExportPassengerAsButton_Click" />
+
+                                <Button Content="Искать" Click="SearchPassengerButton_Click" Margin="30 0 30 0" />
+                                <Button Content="Перейти к экспорту" Click="ExportPassengerAsButton_Click" Width="180"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -107,7 +103,7 @@
                                 <RowDefinition Height="0.80*"></RowDefinition>
                                 <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
-                            
+
                             <DataGrid x:Name="LinerGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*" />
@@ -119,7 +115,7 @@
                             </DataGrid>
                             <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
                                 <Button x:Name="AddLinerButton" Content="Добавить" Click="AddLinerButton_Click" Style="{StaticResource AddButton}"/>
-                                <Button x:Name="EditLinerButton" Content="Редактировать" Click="EditLinerButton_Click" Margin="10 0 10 0" />
+                                <Button x:Name="EditLinerButton" Content="Редактировать" Click="EditLinerButton_Click" Margin="30 0 30 0" />
                                 <Button x:Name="DeleteLinerButton" Content="Удалить" Click="DeleteLinerButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
@@ -128,8 +124,8 @@
                     <TabItem x:Name="AirportTabItem" Header="Аэропорты" Visibility="Hidden" Height="0">
                         <Grid x:Name="AirportGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <DataGrid x:Name="AirportGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
@@ -139,11 +135,11 @@
 
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button x:Name="AddAirportButton" Content="Добавить" Click="AddAirportButton_Click" 
                                         Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditAirportButton" Content="Редактировать" Click="EditAirportButton_Click"
-                                        Margin="10 0 10 0" />
+                                        Margin="30 0 30 0" />
                                 <Button x:Name="DeleteAirportButton" Content="Удалить" Click="DeleteAirportButton_Click"
                                         Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
@@ -153,8 +149,8 @@
                     <TabItem x:Name="RouteTabItem" Header="Маршруты" Visibility="Hidden" Height="0">
                         <Grid x:Name="RouteGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
 
                             <DataGrid x:Name="RouteGrid" IsReadOnly="True" AutoGenerateColumns="False">
@@ -166,11 +162,11 @@
                                                         Width="*" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button x:Name="AddRouteButton" Content="Добавить" Click="AddRouteButton_Click"
                                         Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditRouteButton" Content="Редактировать" Click="EditRouteButton_Click"
-                                        Margin="10 0 10 0" />
+                                        Margin="30 0 30 0" />
                                 <Button x:Name="DeleteRouteButton" Content="Удалить" Click="DeleteRouteButton_Click"
                                         Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
@@ -180,8 +176,8 @@
                     <TabItem x:Name="EmployeeTabItem" Header="Сотрудники" Visibility="Hidden" Height="0">
                         <Grid x:Name="EmployeeGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -196,11 +192,11 @@
 
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Button x:Name="AddEmployeeButton" Click="AddEmployeeButton_Click" Style="{StaticResource AddButton}"/>                                         
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="AddEmployeeButton" Click="AddEmployeeButton_Click" Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditEmployeeButton" Content="Редактировать" Click="EditEmployeeButton_Click"
-                                         Margin="10 0 10 0" />
-                                <Button x:Name="DeleteEmployeeButton" Click="DeleteEmployeeButton_Click" Style="{StaticResource DeleteButton}"/>                                         
+                                         Margin="30 0 30 0" />
+                                <Button x:Name="DeleteEmployeeButton" Click="DeleteEmployeeButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>
@@ -208,8 +204,8 @@
                     <TabItem x:Name="CrewTabItem" Header="Экипажы" Visibility="Hidden" Height="0">
                         <Grid x:Name="CrewGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <DataGrid x:Name="CrewGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
@@ -217,10 +213,10 @@
 
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button x:Name="AddCrewButton" Click="AddCrewButton_Click" Style="{StaticResource AddButton}" />
                                 <Button x:Name="EditCrewButton" Content="Редактировать" Click="EditCrewButton_Click"
-                                         Margin="10 0 10 0" />
+                                         Margin="30 0 30 0" />
                                 <Button x:Name="DeleteCrewButton"  Click="DeleteCrewButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
@@ -229,8 +225,8 @@
                     <TabItem x:Name="FlightTabItem" Header="Рейсы" Visibility="Hidden" Height="0">
                         <Grid x:Name="FlightGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <DataGrid x:Name="FlightGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
@@ -242,10 +238,10 @@
                                                         Width="*" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button x:Name="AddFlightButton" Click="AddFlightButton_Click" Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditFlightButton" Content="Редактировать" Click="EditFlightButton_Click"
-                                         Margin="10 0 10 0" />
+                                         Margin="30 0 30 0" />
                                 <Button x:Name="DeleteFlightButton"  Click="DeleteFlightButton_Click" Style="{StaticResource DeleteButton}" />
                             </StackPanel>
                         </Grid>
@@ -254,8 +250,8 @@
                     <TabItem x:Name="DepartureTabItem" Header="Вылеты" Visibility="Hidden" Height="0">
                         <Grid x:Name="DepartureGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <DataGrid x:Name="DepartureGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
@@ -269,11 +265,11 @@
                                     <DataGridTextColumn Binding="{Binding Liner.Name}" Header="Название лайнера" Width="*" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button x:Name="AddDepartureButton" Click="AddDepartureButton_Click" Style="{StaticResource AddButton}"/>
                                 <Button x:Name="EditDepartureButton" Content="Редактировать"
                                         Click="EditDepartureButton_Click"
-                                        Margin="10 0 10 0" />
+                                        Margin="30 0 30 0" />
                                 <Button x:Name="DeleteDepartureButton" Click="DeleteDepartureButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
@@ -282,8 +278,8 @@
                     <TabItem x:Name="TicketTabItem" Header="Билеты" Visibility="Hidden" Height="0">
                         <Grid x:Name="TicketGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <DataGrid x:Name="TicketGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
@@ -304,10 +300,10 @@
                                                         Width="*" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button x:Name="AddTicketButton" Click="AddTicketButton_Click" Style="{StaticResource AddButton}" />
                                 <Button x:Name="EditTicketButton" Content="Редактировать" Click="EditTicketButton_Click"
-                                         Margin="10 0 10 0" />
+                                         Margin="30 0 30 0" />
                                 <Button x:Name="DeleteTicketButton" Click="DeleteTicketButton_Click" Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
@@ -316,10 +312,10 @@
                     <TabItem x:Name="AdminTabItem" Header="Панель администратора" Visibility="Hidden" Height="0">
                         <Grid x:Name="AdminGridItem" Margin="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.90*"></RowDefinition>
-                                <RowDefinition Height="0.10*"></RowDefinition>
+                                <RowDefinition Height="0.80*"></RowDefinition>
+                                <RowDefinition Height="0.20*"></RowDefinition>
                             </Grid.RowDefinitions>
-                            <DataGrid x:Name="UserGrid" CanUserAddRows="False" AutoGenerateColumns="False">
+                            <DataGrid x:Name="UserGrid" CanUserAddRows="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" Header="Индефиктор" Width="*" />
                                     <DataGridTextColumn IsReadOnly="True" Binding="{Binding Login}" Header="Логин" Width="*" />
@@ -330,11 +326,11 @@
                                                             SelectedItemBinding="{Binding UserType}" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10 0 0">
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Center">
                                 <Button x:Name="SaveUserButton" Content="Сохранить" Click="SaveUserButton_Click"
                                         />
                                 <Button x:Name="EditAccessRightButton" Content="Редактировать"
-                                        Click="EditAccessRightButton_Click"  Margin="10 0 10 0"/>
+                                        Click="EditAccessRightButton_Click"  Margin="30 0 30 0"/>
                                 <Button x:Name="DeleteUserButton" Click="DeleteUserButton_Click"  Style="{StaticResource DeleteButton}"/>
                             </StackPanel>
                         </Grid>
@@ -361,41 +357,71 @@
                                     </StackPanel>
                                 </Grid>
                             </Grid>
-                        </Viewbox>                        
+                        </Viewbox>
                     </TabItem>
 
                     <TabItem x:Name="RecoverPasswordTabItem" Header="Смена пароля" Visibility="Hidden" Height="0">
                         <Grid x:Name="RecoverPasswordGridItem" Margin="10">
                             <Viewbox>
+                                <StackPanel Margin="10" Orientation="Vertical" >
+                                    <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Margin="0 0 0 20">Изменение пароля</TextBlock>
 
-                                <StackPanel Margin="0,5,0,0" Orientation="Vertical" HorizontalAlignment="Center">
-                                
-                                <TextBlock HorizontalAlignment="Center"> Для изменения пароля введите старый пароль.</TextBlock>
-                                <TextBlock HorizontalAlignment="Center"> Затем придумайте новый и подтвердите его.</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center"> Для изменения пароля введите старый пароль.</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center"> Затем придумайте новый и подтвердите его.</TextBlock>
                                     
+                                    <Grid  Margin="0,5,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
 
-                                <StackPanel Margin="0,10,0,0">
-                                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                                        <Label Content="Старый пароль" VerticalAlignment="Bottom" Width="160" />
-                                        <PasswordBox x:Name="OldPasswordTexBox" VerticalAlignment="Center" Width="140" />
-                                    </StackPanel>
+                                        <Label Grid.Row="0" Content="Старый пароль" HorizontalAlignment="Right"/>
+                                        <PasswordBox Grid.Column="1" x:Name="OldPasswordTexBox" VerticalAlignment="Center" HorizontalAlignment="Left" Width="140" />
 
-                                    <StackPanel Orientation="Horizontal" Margin="0,25,0,0">
-                                        <Label Content="Новый пароль"  Width="160" />
-                                        <PasswordBox x:Name="NewPasswordTexBox" VerticalAlignment="Center" Width="140" />
-                                    </StackPanel>
+                                        <Label Grid.Row="1" Content="Новый пароль" HorizontalAlignment="Right" Margin="0 20 0 0"/>
+                                        <PasswordBox Grid.Row="1" Grid.Column="1" x:Name="NewPasswordTexBox" VerticalAlignment="Center" HorizontalAlignment="Left" Width="140"  Margin="0 20 0 0"/>
 
-                                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                                        <Label Content="Подтверждение пароля" VerticalAlignment="Center" Width="160" />
-                                        <PasswordBox x:Name="ConfirmPasswordTexBox" VerticalAlignment="Center" Width="140" />
-                                    </StackPanel>
+                                        <Label Grid.Row="2" Content="Подтверждение пароля" HorizontalAlignment="Right"/>
+                                        <PasswordBox Grid.Row="2" Grid.Column="2" x:Name="ConfirmPasswordTexBox" VerticalAlignment="Center" HorizontalAlignment="Left" Width="140" />
+                                    </Grid>
+
+                                    <Button x:Name="RecoverPasswordButton" Margin="0,25,0,25" Content="Изменить пароль"
+                                        Click="RecoverPasswordButton_Click" Width="auto"/>
                                 </StackPanel>
 
-                                
-                                <Button x:Name="RecoverPasswordButton" Margin="0,25,0,25" Content="Изменить пароль"
+                                <!--<StackPanel Margin="0,5,0,0" Orientation="Vertical" Width="auto">
+
+                                    <TextBlock HorizontalAlignment="Center"> Для изменения пароля введите старый пароль.</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center"> Затем придумайте новый и подтвердите его.</TextBlock>
+
+
+                                    <StackPanel Margin="0,10,0,0">
+                                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label Content="Старый пароль" VerticalAlignment="Bottom" Width="160" />
+                                            <PasswordBox x:Name="OldPasswordTexBox" VerticalAlignment="Center" Width="140" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,25,0,0">
+                                            <Label Content="Новый пароль"  Width="200" />
+                                            <PasswordBox x:Name="NewPasswordTexBox" VerticalAlignment="Center" Width="140" HorizontalAlignment="Right" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label Content="Подтверждение пароля" VerticalAlignment="Center" Width="auto"/>
+                                            <PasswordBox x:Name="ConfirmPasswordTexBox" VerticalAlignment="Center" Width="140" />
+                                        </StackPanel>
+                                    </StackPanel>
+
+
+                                    <Button x:Name="RecoverPasswordButton" Margin="0,25,0,25" Content="Изменить пароль"
                                         Click="RecoverPasswordButton_Click" Width="auto"/>
-                                
-                            </StackPanel>
+
+                                </StackPanel>-->
                             </Viewbox>
                         </Grid>
                     </TabItem>
