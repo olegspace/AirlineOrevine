@@ -8,7 +8,7 @@
         Title="Аутентификация" Height="600" Width="800" MinWidth="750" MinHeight="500" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
     <Grid Background="AliceBlue">
         <TabControl Background="AliceBlue">
-            <TabItem Background="AliceBlue" Header="Авторизация" Height="auto" FontSize="16">
+            <TabItem Header="Авторизация" Height="auto" FontSize="16">
                 <Viewbox>
                     <StackPanel Width="300" Margin="0 0 0 40">
                         <Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Авиакомпания Orevine</Label>

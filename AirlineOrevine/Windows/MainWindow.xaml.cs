@@ -50,6 +50,7 @@ public partial class MainWindow
     private const string HelpTitle = "Справка";
     private const string RecoverPasswordTitle = "Изменение пароля пользователя";
     private const string FirstDocumentTitle = "Список пассажиров";
+    private const string ContentTitle = "Содержание программы";
 
     public List<PassengerDb> Passengers { get; set; }
     public List<LinerDb> Liners { get; set; }
@@ -72,8 +73,8 @@ public partial class MainWindow
         User = user;
 
         TabControl.SelectedItem = HelpTabItem;
-        TitleTextBox.Text = HelpTitle;
-        UserNameTextBox.Text = user.Login;
+        TitleTextBlock.Text = HelpTitle;
+        UserNameTextBlock.Text = user.Login;
 
         InitMenuItems();
 
@@ -963,80 +964,93 @@ public partial class MainWindow
     public void OpenPassengerButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = PassengerTabItem;
-        TitleTextBox.Text = PassengerTitle;
+        TitleTextBlock.Text = PassengerTitle;
     }
 
     public void OpenLinerButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = LinerTabItem;
-        TitleTextBox.Text = LinerTitle;
+        TitleTextBlock.Text = LinerTitle;
     }
 
     public void OpenAirportButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = AirportTabItem;
-        TitleTextBox.Text = AirportTitle;
+        TitleTextBlock.Text = AirportTitle;
     }
 
     public void OpenRouteButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = RouteTabItem;
-        TitleTextBox.Text = RouteTitle;
+        TitleTextBlock.Text = RouteTitle;
     }
 
     public void OpenEmployeeButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = EmployeeTabItem;
-        TitleTextBox.Text = EmployeeTitle;
+        TitleTextBlock.Text = EmployeeTitle;
     }
 
     public void OpenCrewButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = CrewTabItem;
-        TitleTextBox.Text = CrewTitle;
+        TitleTextBlock.Text = CrewTitle;
     }
 
     public void OpenFlightButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = FlightTabItem;
-        TitleTextBox.Text = FlightTitle;
+        TitleTextBlock.Text = FlightTitle;
     }
 
     public void OpenDepartureButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = DepartureTabItem;
-        TitleTextBox.Text = DepartureTitle;
+        TitleTextBlock.Text = DepartureTitle;
     }
 
     public void OpenTicketButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = TicketTabItem;
-        TitleTextBox.Text = TicketTitle;
+        TitleTextBlock.Text = TicketTitle;
     }
 
-    public void OpenHelpButton_Click(object sender, RoutedEventArgs e)
+    //public void OpenHelpButton_Click(object sender, RoutedEventArgs e)
+    //{
+    //    TabControl.SelectedItem = HelpTabItem;
+    //    TitleTextBlock.Text = HelpTitle;
+    //}
+
+    public void ContentButton_Click(object sender, RoutedEventArgs e)
     {
-        TabControl.SelectedItem = HelpTabItem;
-        TitleTextBox.Text = HelpTitle;
+        /////Исправить
+        TabControl.SelectedItem = ContentTabItem;
+        TitleTextBlock.Text = ContentTitle;
+        /////
     }
 
+    public void AboutProgramButton_Click(object sender, RoutedEventArgs e)
+    {
+        var adoutProgramWindow = new AboutProgramWindow();
+        adoutProgramWindow.ShowDialog();
+    }
     public void OpenFirstDocumentButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = FirstDocumentTabItem;
-        TitleTextBox.Text = FirstDocumentTitle;
+        TitleTextBlock.Text = FirstDocumentTitle;
         RefreshFirstDocumentGrid();
     }
 
     public void OpenRecoverPasswordButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = RecoverPasswordTabItem;        
-        TitleTextBox.Text = "";    
+        TitleTextBlock.Text = "";    
     }
 
     public void OpenAdminButton_Click(object sender, RoutedEventArgs e)
     {
         TabControl.SelectedItem = AdminTabItem;
-        TitleTextBox.Text = AdminTitle;
+        TitleTextBlock.Text = AdminTitle;
     }
 
     public void ExportPassengerAsButton_Click(object sender, RoutedEventArgs e)

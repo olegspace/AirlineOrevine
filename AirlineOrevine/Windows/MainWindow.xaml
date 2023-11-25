@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineOrevine.Windows"
         mc:Ignorable="d"
+        Background="AliceBlue"
         Title="АИС Авиакомпания Orevine" Height="600" Width="1000" MinWidth="700" MinHeight="600" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
 
-    <Grid Background="AliceBlue">
+    <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,7 +18,7 @@
         <Menu Name="Menu"  FontSize="16" VerticalAlignment="Top" Padding="10 0 10 0">
         </Menu>
 
-        <Grid Background="AliceBlue" Grid.Row="1" Margin="15 0">
+        <Grid Grid.Row="1" Margin="15 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
                 <RowDefinition/>
@@ -25,17 +26,21 @@
 
             <Grid Grid.Row="0">   
                 <StackPanel Orientation="Horizontal" Panel.ZIndex="2">
-                    <TextBox  Name="UserTextBox" Text="Пользователь: " HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"
-                             FontWeight="Medium"  Margin="10 10 0 0" FontSize="20" Background="AliceBlue"/>
-                    <TextBox  x:Name="UserNameTextBox" Text="User" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"
-                             FontWeight="Regular" FontSize="20" Background="AliceBlue" Margin="0 10 0 0" Panel.ZIndex="100"/>                    
+                    <TextBlock  Name="UserTextBlock" Text="Пользователь: " HorizontalAlignment="Left" VerticalAlignment="Center"
+                             FontWeight="Medium"  Margin="10 10 0 0" FontSize="20"/>
+                    <TextBlock  x:Name="UserNameTextBlock" Text="User" HorizontalAlignment="Left" VerticalAlignment="Center"
+                             FontWeight="Regular" FontSize="20" Margin="0 10 0 0" Panel.ZIndex="100"/>                    
                 </StackPanel>                  
-                <TextBox Name="TitleTextBox" Text="Заголовок" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0"
-                 FontWeight="Bold" Margin="10 10 10 0" FontSize="20" Background="AliceBlue" Panel.ZIndex="1"/>
+                <TextBlock Name="TitleTextBlock" Text="Заголовок" HorizontalAlignment="Center" VerticalAlignment="Center"
+                 FontWeight="Bold" Margin="10 10 10 0" FontSize="20" Panel.ZIndex="1"/>
             </Grid>
 
             <Grid Grid.Row="1">
                 <TabControl VerticalAlignment="Stretch" Background="AliceBlue"  Name="TabControl" MinHeight="400" BorderThickness="0">
+                    <TabItem x:Name="ContentTabItem" Visibility="Visible" Height="0">
+                        
+                    </TabItem>                    
+                    
                     <TabItem x:Name="PassengerTabItem"  Header="Пассажиры" Visibility="Visible" Height="0">
                         <Grid x:Name="PassengerGridItem" Margin="10">
                             <Grid.RowDefinitions>

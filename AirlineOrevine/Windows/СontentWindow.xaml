@@ -1,0 +1,59 @@
+﻿<Window x:Class="AirlineOrevine.Windows.СontentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirlineOrevine.Windows"
+        mc:Ignorable="d"
+        Background="AliceBlue"
+        Title="СontentWindow"  Height="700" Width="1000" MinWidth="700" MinHeight="600" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Содержание " HorizontalAlignment="Center" VerticalAlignment="Center"
+                             FontWeight="Medium"  Margin="10 10 0 0" FontSize="20"/>
+
+        <TabControl Grid.Row="1" HorizontalAlignment="Stretch" Margin="10" Background="AliceBlue"  Name="ContentTabControl">
+            <TabItem x:Name="AuthTabItem" Header="Авторизация">
+                <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                    <ListBoxItem>
+                        <TextBlock TextWrapping="Wrap">
+                        • При запуске программы открывается окно авторизации. В нём необходимо ввести логин и пароль. Затем нажать кнопку "Войти".
+                        </TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock TextWrapping="Wrap">
+                        • Если пользователь заходит в программу в первые, то есть возможность регистрации. Для этого необходимо нажать на вкладку "Регистрация" придумать логин, пароль. Повторить ввод пароля и нажать на кнопку "Зарегестрироваться".
+                        </TextBlock>
+                    </ListBoxItem>
+                </ListBox>
+            </TabItem>
+            <TabItem x:Name="MainTabItem" Header="Главное окно">
+                <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                    <ListBoxItem>
+                        <TextBlock TextWrapping="Wrap">
+                        • Главное окно содержит в верхней части пункты меню.
+                        </TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock TextWrapping="Wrap">
+                        • При нажатии пункта меню "Справочники" или любой из подпунктом "Аэропорт" по середине отобразитсья таблица с данными. Внизу появяться три кнопки: "Добавить", "Редакитровать" и "Удалить".
+                        </TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock TextWrapping="Wrap">
+                        • В зависимости от прав пользователя какие-то из трёх кнопок могут быть неактивными.
+                        </TextBlock>
+                    </ListBoxItem>
+                </ListBox>
+            </TabItem>
+            <TabItem x:Name="AdminTabItem" Header="Панель администратора">
+                    
+            </TabItem>  
+        </TabControl>
+
+    </Grid>
+</Window>

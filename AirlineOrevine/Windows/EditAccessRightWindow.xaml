@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Background="AliceBlue"
-        Title="Редактирование прав доступа" Height="500" Width="800" MinHeight="450" MinWidth="700" WindowStartupLocation="CenterScreen">
+        Title="Редактирование прав доступа" Height="500" Width="950" MinHeight="450" MinWidth="700" WindowStartupLocation="CenterScreen">
 
           
     <Grid x:Name ="AccessRightGridItem" Margin="10">

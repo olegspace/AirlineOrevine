@@ -6,6 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:utilities="clr-namespace:Common.Utilities;assembly=Common"
         mc:Ignorable="d"
+        Background="AliceBlue"
         Title="Редактирование вылета" Height="700" Width="1000" MinHeight="650" MinWidth="900" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <utilities:DateTimeFormatConverter x:Key="DateTimeFormatConverter" />

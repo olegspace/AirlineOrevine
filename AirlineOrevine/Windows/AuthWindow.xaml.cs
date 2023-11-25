@@ -63,8 +63,8 @@ namespace AirlineOrevine.Windows
             AccessRight.Write = isWrite;
             AccessRight.Edit = isEdit;
             AccessRight.Delete = isDelete;
-
             AccessRight.Form = formType;
+
             return AccessRight;
         }
 
@@ -151,12 +151,16 @@ namespace AirlineOrevine.Windows
                 Cursor = Cursors.Arrow;
             }
         }
-        
+        private void LoginButtonClick(object sender, RoutedEventArgs e)
+        {
+            Login();
+        }
+
         private void Login()
         {
+            Cursor = Cursors.Wait;
             try
-            {
-                Cursor = Cursors.Wait;
+            {                
                 if (String.IsNullOrEmpty(UserLoginTextBox.Text))
                 {
                     MessageBox.Show("Логин не заполнен. Введите логин");
@@ -196,10 +200,6 @@ namespace AirlineOrevine.Windows
             {
                 Cursor = Cursors.Arrow;
             }
-        }
-        private void LoginButtonClick(object sender, RoutedEventArgs e)
-        {
-            Login();
-        }
+        }        
     }
 }
