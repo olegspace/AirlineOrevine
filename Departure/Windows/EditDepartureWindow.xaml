@@ -17,12 +17,12 @@
             <StackPanel HorizontalAlignment="Center" Margin="0 20">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Время вылета" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" />
-                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
+                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd.MM.yyyy HH:mm"
                                          Text="{Binding Path=Departure.DepartureTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10">
                     <Label Content="Время приземления" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="180" />
-                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
+                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd.MM.yyyy HH:mm"
                                          Text="{Binding Path=Departure.ArrivalTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10">

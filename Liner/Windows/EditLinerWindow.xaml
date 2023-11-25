@@ -22,13 +22,13 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10">
                     <Label Content="Дата осмотра" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" />
-                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
+                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd.MM.yyyy HH:mm"
                                          Text="{Binding Path=Liner.InspectionDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10">
                     <Label Content="Дата производства" HorizontalAlignment="Left" VerticalAlignment="Center"
                            Width="180" />
-                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
+                    <xctk:DateTimePicker Width="200" Format="Custom" FormatString="dd.MM.yyyy hh:mm" TimeFormat="Custom" TimeFormatString="hh:mm tt"
                                          Text="{Binding Path=Liner.DateOfIssue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
                 </StackPanel>
 

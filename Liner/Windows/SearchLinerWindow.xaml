@@ -26,8 +26,8 @@
                 <DataGrid x:Name="LinerGrid" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="*"/>
-                        <DataGridTextColumn Binding="{Binding InspectionDate}" Header="Дата осмотра" Width="*"/>
-                        <DataGridTextColumn Binding="{Binding DateOfIssue}" Header="Дата выпуска" Width="*"/>
+                        <DataGridTextColumn Binding="{Binding InspectionDate, StringFormat=dd.MM.yyyy hh:mm}" Header="Дата осмотра" Width="*"/>
+                         <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat=dd.MM.yyyy hh:mm}" Header="Дата выпуска" Width="*"/>
                         <DataGridTextColumn Binding="{Binding LinerType}" Header="Тип" Width="*"/>
 
                     </DataGrid.Columns>

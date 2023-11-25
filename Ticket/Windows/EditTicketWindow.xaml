@@ -7,7 +7,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Background="AliceBlue"
-        Title="Редактирование билета" Height="700" Width="800" MinHeight="700" MinWidth="800" WindowStartupLocation="CenterScreen">
+        Title="Редактирование билета" Height="700" Width="1000" MinHeight="700" MinWidth="900" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <utilities:DateTimeFormatConverter x:Key="DateTimeFormatConverter" />
     </Window.Resources>
@@ -18,7 +18,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Дата покупки" HorizontalAlignment="Left" VerticalAlignment="Center"
                             Width="160" />
-                        <xctk:DateTimePicker Width="180" Format="Custom" FormatString="dd/MM/yyyy hh:mm tt"
+                        <xctk:DateTimePicker Width="180" Format="Custom" FormatString="dd.MM.yyyy HH:mm"
                                             Text="{Binding Path=Ticket.PurchaseDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeFormatConverter}}" />
                     </StackPanel>
 
@@ -64,7 +64,7 @@
                             <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
                             <DataGridTextColumn Binding="{Binding PassportSeries}" Header="Серия" Width="*" />
                             <DataGridTextColumn Binding="{Binding PassportId}" Header="Номер" Width="*" />
-                            <DataGridTextColumn Binding="{Binding DateOfIssue}" Header="Дата получения" Width="*" />
+                            <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat=dd.MM.yyyy}" Header="Дата получения" Width="*" />
                             <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
                         </DataGrid.Columns>
                     </DataGrid>
@@ -90,10 +90,10 @@
                         <Label Content="Вылет" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
                         <Button Content="Изменить" Click="AddDepartureButton_Click" />
                     </StackPanel>
-                    <DataGrid x:Name="DepartureGrid" Height="100" Width="780">
+                    <DataGrid x:Name="DepartureGrid" Height="100" Width="1000">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding DepartureTime}" Header="Время вылета" Width="*" />
-                            <DataGridTextColumn Binding="{Binding ArrivalTime}" Header="Время приземления" Width="*" />
+                            <DataGridTextColumn Binding="{Binding DepartureTime, StringFormat=dd.MM.yyyy hh:mm}" Header="Время вылета" Width="*" />
+                            <DataGridTextColumn Binding="{Binding ArrivalTime, StringFormat=dd.MM.yyyy hh:mm}" Header="Время приземления" Width="*" />
                             <DataGridTextColumn Binding="{Binding Crew.Title}" Header="Название экипажа" Width="*" />
                             <DataGridTextColumn Binding="{Binding Flight.Route.Id}" Header="Шифр маршрута" Width="*" />
                             <DataGridTextColumn Binding="{Binding Flight.Title}" Header="Название рейса" Width="*" />

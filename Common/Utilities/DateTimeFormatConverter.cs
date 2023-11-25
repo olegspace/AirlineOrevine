@@ -11,7 +11,7 @@ public class DateTimeFormatConverter : IValueConverter
     {
         if (value is DateTime date)
         {
-            return date.ToString("dd.MM.yyyy hh:mm tt", CultureInfo.InvariantCulture);
+            return date.ToString("dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture);
         }
         return string.Empty;
     }
@@ -20,7 +20,7 @@ public class DateTimeFormatConverter : IValueConverter
     {
         if (value is string dateString)
         {
-            if (DateTime.TryParseExact(dateString, "dd.MM.yyyy hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime resultDate))
+            if (DateTime.TryParseExact(dateString, "dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime resultDate))
             {
                 return resultDate;
             }

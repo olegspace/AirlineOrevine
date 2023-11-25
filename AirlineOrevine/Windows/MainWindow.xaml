@@ -112,8 +112,8 @@
                             <DataGrid x:Name="LinerGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*" />
-                                    <DataGridTextColumn Binding="{Binding InspectionDate}" Header="Дата осмотра" Width="*" />
-                                    <DataGridTextColumn Binding="{Binding DateOfIssue}" Header="Дата выпуска" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding InspectionDate, StringFormat=dd.MM.yyyy HH:mm}" Header="Дата осмотра" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat=dd.MM.yyyy HH:mm}" Header="Дата выпуска" Width="*" />
                                     <DataGridTextColumn Binding="{Binding LinerType}" Header="Тип" Width="*" />
 
                                 </DataGrid.Columns>
@@ -260,8 +260,8 @@
                             </Grid.RowDefinitions>
                             <DataGrid x:Name="DepartureGrid" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding DepartureTime}" Header="Время вылета" Width="*" />
-                                    <DataGridTextColumn Binding="{Binding ArrivalTime}" Header="Время приземления"
+                                    <DataGridTextColumn Binding="{Binding DepartureTime, StringFormat=dd.MM.yyyy hh:mm}" Header="Время вылета" Width="*" />
+                                    <DataGridTextColumn Binding="{Binding ArrivalTime, StringFormat=dd.MM.yyyy hh:mm}" Header="Время приземления"
                                                         Width="*" />
                                     <DataGridTextColumn Binding="{Binding Crew.Title}" Header="Название экипажа" Width="*" />
                                     <DataGridTextColumn Binding="{Binding Flight.Route.Id}" Header="Шифр маршрута"
@@ -293,9 +293,9 @@
                                     <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="*" />
                                     <DataGridTextColumn Binding="{Binding ServiceClass}" Header="Класс" Width="*" />
                                     <DataGridTextColumn Binding="{Binding CheckoutNumber}" Header="Касса" Width="10" />
-                                    <DataGridTextColumn Binding="{Binding Departure.DepartureTime}" Header="Время вылета"
+                                    <DataGridTextColumn Binding="{Binding Departure.DepartureTime, StringFormat=dd.MM.yyyy hh:mm}" Header="Время вылета"
                                                         Width="*" />
-                                    <DataGridTextColumn Binding="{Binding Departure.ArrivalTime}"
+                                    <DataGridTextColumn Binding="{Binding Departure.ArrivalTime, StringFormat=dd.MM.yyyy hh:mm}"
                                                         Header="Время приземления" Width="*" />
                                     <DataGridTextColumn Binding="{Binding Departure.Liner.Name}" Header="Название лайнера"
                                                         Width="*" />
