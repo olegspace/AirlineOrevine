@@ -24,7 +24,9 @@ namespace Route.Windows
         {
             var search = SearchTextBox.Text.ToLower();
             RouteGrid.ItemsSource = _dbContext.Routes
-                .Where(x => x.StartingPoint.Name.ToLower().Contains(search) || x.EndingPoint.Name.ToLower().Contains(search) || x.Id.ToString().Contains(search))
+                .Where(x => x.StartingPoint.Name.ToLower().Contains(search) || 
+                x.EndingPoint.Name.ToLower().Contains(search) || 
+                x.Id.ToString().Contains(search))
                 .ToList();
             RouteGrid.Items.Refresh();
         }

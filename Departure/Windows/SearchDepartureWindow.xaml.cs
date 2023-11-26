@@ -29,11 +29,10 @@ namespace Departure.Windows
             DepartureGrid.ItemsSource = _dbContext.Departures
                 .Where(x => x.Crew.Title.ToLower().Contains(search) || x.Flight.Title.ToLower().Contains(search) ||
                             x.Liner.Name.ToLower().Contains(search) ||
-                            x.Flight.Route.StartingPoint.Name.ToLower().Contains(search)
-                            || x.Flight.Route.StartingPoint.Name.ToLower().Contains(search) ||
+                            x.Flight.Route.StartingPoint.Name.ToLower().Contains(search) ||
                             x.Flight.Route.StartingPoint.City.ToLower().Contains(search) ||
-                            x.Flight.Route.StartingPoint.Country.ToLower().Contains(search)
-                            || x.Flight.Route.EndingPoint.Name.ToLower().Contains(search) ||
+                            x.Flight.Route.StartingPoint.Country.ToLower().Contains(search) ||
+                            x.Flight.Route.EndingPoint.Name.ToLower().Contains(search) ||
                             x.Flight.Route.EndingPoint.City.ToLower().Contains(search) ||
                             x.Flight.Route.EndingPoint.Country.ToLower().Contains(search))
                 .ToList();

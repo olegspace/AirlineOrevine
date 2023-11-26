@@ -29,7 +29,9 @@ namespace Employee.Windows
         {
             var search = SearchTextBox.Text.ToLower();
             CashierGrid.ItemsSource = _dbContext.Employees
-                .Where(x => (x.FirstName.ToLower().Contains(search) || x.LastName.ToLower().Contains(search) || x.Patronymic.ToLower().Contains(search)) && x.EmployeeType == EmployeeTypes.Cashier)
+                .Where(x => (x.FirstName.ToLower().Contains(search) || 
+                x.LastName.ToLower().Contains(search) || 
+                x.Patronymic.ToLower().Contains(search)) && x.EmployeeType == EmployeeTypes.Cashier)
                 .ToList();
             CashierGrid.Items.Refresh();
         }
