@@ -106,27 +106,27 @@ namespace Ticket.Windows
         {
             if (Ticket.Departure == null)
             {
-                MessageBox.Show("Укажите вылет");
+                MessageBox.Show("Укажите вылет", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (Ticket.Passenger == null)
             {
-                MessageBox.Show("Укажите пассажира");
+                MessageBox.Show("Укажите пассажира", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (Ticket.Employee == null)
             {
-                MessageBox.Show("Укажите кассира");
+                MessageBox.Show("Укажите кассира", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (string.IsNullOrEmpty(Ticket.Place))
             {
-                MessageBox.Show("Укажите место");
+                MessageBox.Show("Укажите место", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if ((Ticket.CheckoutNumber.ToString() == null) || Ticket.CheckoutNumber.ToString() == "0")
             {
-                MessageBox.Show("Укажите кассу");
+                MessageBox.Show("Укажите кассу", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             try
@@ -140,7 +140,7 @@ namespace Ticket.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

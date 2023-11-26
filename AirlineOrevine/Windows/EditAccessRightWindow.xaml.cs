@@ -36,7 +36,7 @@ namespace AirlineOrevine.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

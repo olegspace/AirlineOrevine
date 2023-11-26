@@ -60,19 +60,19 @@ namespace Departure.Windows
         {
             if (Departure.Crew == null)
             {
-                MessageBox.Show("Укажите экипаж");
+                MessageBox.Show("Укажите экипаж", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (Departure.Liner == null)
             {
-                MessageBox.Show("Укажите авиалайнер");
+                MessageBox.Show("Укажите авиалайнер", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (Departure.Flight == null)
             {
-                MessageBox.Show("Укажите рейс");
+                MessageBox.Show("Укажите рейс", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -88,7 +88,7 @@ namespace Departure.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

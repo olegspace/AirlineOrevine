@@ -36,17 +36,17 @@ namespace Employee.Windows
         {
             if (string.IsNullOrEmpty(Employee.FirstName))
             {
-                MessageBox.Show("Укажите имя");
+                MessageBox.Show("Укажите имя", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (string.IsNullOrEmpty(Employee.LastName))
             {
-                MessageBox.Show("Укажите фамилию");
+                MessageBox.Show("Укажите фамилию", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (string.IsNullOrEmpty(Employee.Patronymic))
             {
-                MessageBox.Show("Укажите отчество");
+                MessageBox.Show("Укажите отчество", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             try
@@ -60,7 +60,7 @@ namespace Employee.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

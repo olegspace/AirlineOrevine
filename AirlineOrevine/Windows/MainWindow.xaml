@@ -55,7 +55,7 @@
                                     <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
                                     <DataGridTextColumn Binding="{Binding PassportSeries}" Header="Серия" Width="*" />
                                     <DataGridTextColumn Binding="{Binding PassportId}" Header="Номер" Width="*" />
-                                    <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat={}\{0:dd/MM/yyyy\}}"
+                                    <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat=dd.MM.yyyy}"
                                                             Header="Дата получения" Width="*" />
                                     <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
                                 </DataGrid.Columns>
@@ -84,7 +84,7 @@
                                     <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="*" />
                                     <DataGridTextColumn Binding="{Binding PassportSeries}" Header="Серия" Width="*" />
                                     <DataGridTextColumn Binding="{Binding PassportId}" Header="Номер" Width="*" />
-                                    <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat={}\{0:dd/MM/yyyy\}}"
+                                    <DataGridTextColumn Binding="{Binding DateOfIssue, StringFormat=dd.MM.yyyy}"
                                                         Header="Дата получения" Width="*" />
                                     <DataGridTextColumn Binding="{Binding IssuedBy}" Header="Кем выдан" Width="*" />
                                 </DataGrid.Columns>

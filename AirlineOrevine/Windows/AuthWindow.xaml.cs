@@ -76,31 +76,31 @@ namespace AirlineOrevine.Windows
                 var login = RegisterLoginTextBox.Text;
                 if (String.IsNullOrEmpty(RegisterLoginTextBox.Text))
                 {
-                    MessageBox.Show("Логин не заполнен. Введите логин");
+                    MessageBox.Show("Логин не заполнен. Введите логин", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
                 if (RegisterLoginTextBox.Text.Length < 5)
                 {
-                    MessageBox.Show("Логин не может быть меньше 5 символов");
+                    MessageBox.Show("Логин не может быть меньше 5 символов", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
                 if (String.IsNullOrEmpty(RegisterPasswordTextBox.Password))
                 {
-                    MessageBox.Show("Пароль не заполнен. Введите пароль");
+                    MessageBox.Show("Пароль не заполнен. Введите пароль", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
                 if (RegisterPasswordTextBox.Password.Length < 5)
                 {
-                    MessageBox.Show("Пароль не может быть меньше 5 символов");
+                    MessageBox.Show("Пароль не может быть меньше 5 символов", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
                 if (RegisterPasswordConfirmTextBox.Password != RegisterPasswordTextBox.Password)
                 {
-                    MessageBox.Show("Пароли не совпадают. Подтвердите новый пароль");
+                    MessageBox.Show("Пароли не совпадают. Подтвердите новый пароль", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
@@ -129,7 +129,7 @@ namespace AirlineOrevine.Windows
                     }
                     catch (DbUpdateException exception)
                     {
-                        MessageBox.Show(exception.Message);
+                        MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
                     var mainWindow = new MainWindow(_dbContext, user);
@@ -139,12 +139,12 @@ namespace AirlineOrevine.Windows
                 }
                 else
                 {
-                    MessageBox.Show("Данный логин уже существует");
+                    MessageBox.Show("Данный логин уже существует", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка регистрации пользователя");
+                MessageBox.Show("Ошибка регистрации пользователя", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {
@@ -163,13 +163,13 @@ namespace AirlineOrevine.Windows
             {                
                 if (String.IsNullOrEmpty(UserLoginTextBox.Text))
                 {
-                    MessageBox.Show("Логин не заполнен. Введите логин");
+                    MessageBox.Show("Логин не заполнен. Введите логин", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
                 if (String.IsNullOrEmpty(LoginPasswordTextBox.Password))
                 {
-                    MessageBox.Show("Пароль не заполнен. Введите пароль");
+                    MessageBox.Show("Пароль не заполнен. Введите пароль", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
@@ -189,12 +189,12 @@ namespace AirlineOrevine.Windows
                 else
                 {
                     Cursor = Cursors.Arrow;
-                    MessageBox.Show("Неправильный логин или пароль");
+                    MessageBox.Show("Неправильный логин или пароль", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка при загрузке программы");
+                MessageBox.Show("Ошибка при загрузке программы", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {

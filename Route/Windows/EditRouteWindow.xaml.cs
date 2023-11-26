@@ -70,13 +70,13 @@ namespace Route.Windows
         {
             if (Route.StartingPoint == null)
             {
-                MessageBox.Show("Укажите начальный пункт");
+                MessageBox.Show("Укажите начальный пункт", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
             if (Route.EndingPoint == null)
             {
-                MessageBox.Show("Укажите конечный пункт");
+                MessageBox.Show("Укажите конечный пункт", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
@@ -92,7 +92,7 @@ namespace Route.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

@@ -23,17 +23,17 @@ namespace Airport.Windows
         {
             if (string.IsNullOrEmpty(Airport.Name))
             {
-                MessageBox.Show("Укажите название");
+                MessageBox.Show("Укажите название аэропорта", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             if (string.IsNullOrEmpty(Airport.City))
             {
-                MessageBox.Show("Укажите город");
+                MessageBox.Show("Укажите город", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             if (string.IsNullOrEmpty(Airport.Country))
             {
-                MessageBox.Show("Укажите страну");
+                MessageBox.Show("Укажите страну", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             try
@@ -47,7 +47,7 @@ namespace Airport.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

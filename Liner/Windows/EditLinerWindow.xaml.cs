@@ -49,7 +49,7 @@ namespace Liner.Windows
         {
             if (string.IsNullOrEmpty(Liner.Name))
             {
-                MessageBox.Show("Укажите имя");
+                MessageBox.Show("Укажите имя", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             try
@@ -64,7 +64,7 @@ namespace Liner.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }

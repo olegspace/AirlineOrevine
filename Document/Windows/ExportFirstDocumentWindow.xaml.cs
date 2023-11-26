@@ -23,7 +23,7 @@ public partial class ExportFirstDocumentWindow : Window
     public DataGrid DocumentGrid { get; set; }
 
     public ExportFirstDocumentWindow(AirlineOrevineDbContext dbContext, DataGrid documentGrid)
-    {
+    {        
         InitializeComponent();
         DocumentGrid = documentGrid;
     }
@@ -72,7 +72,7 @@ public partial class ExportFirstDocumentWindow : Window
     {
         if (ValidateNameFile())
         {
-            MessageBox.Show("Введите название файла");
+            MessageBox.Show("Введите название файла", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
@@ -80,7 +80,7 @@ public partial class ExportFirstDocumentWindow : Window
 
         if (!myExportList.Any())
         {
-            MessageBox.Show("Нет данных для экспорта");
+            MessageBox.Show("Нет данных для экспорта", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
@@ -95,7 +95,7 @@ public partial class ExportFirstDocumentWindow : Window
     {
         if (ValidateNameFile())
         {
-            MessageBox.Show("Введите название файла");
+            MessageBox.Show("Введите название файла", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
         
@@ -103,7 +103,7 @@ public partial class ExportFirstDocumentWindow : Window
 
         if (!myExportList.Any())
         {
-            MessageBox.Show("Нет данных для экспорта");
+            MessageBox.Show("Нет данных для экспорта", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
@@ -127,7 +127,7 @@ public partial class ExportFirstDocumentWindow : Window
             Console.WriteLine("Ошибка при открытии проводника: " + ex.Message);
         }
 
-        MessageBox.Show("Успешно");
+        MessageBox.Show("Успешно", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
         NameFileTextBox.Clear();
     }
 

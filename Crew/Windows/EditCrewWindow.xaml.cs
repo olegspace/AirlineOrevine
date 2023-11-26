@@ -62,7 +62,7 @@ namespace Crew.Windows
         {            
             if (Crew.Title == null)
             {
-                MessageBox.Show("Укажите название экипажа");
+                MessageBox.Show("Укажите название экипажа", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
      
@@ -77,7 +77,7 @@ namespace Crew.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

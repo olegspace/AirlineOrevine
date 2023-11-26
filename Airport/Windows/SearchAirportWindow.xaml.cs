@@ -63,7 +63,7 @@ namespace Airport.Windows
 
                     if (Route.WayPoints.Any(x => x.Id == ((AirportDb)AirportGrid.SelectedItems[0]!).Id))
                     {
-                        MessageBox.Show("Данный промежуточный пункт уже присутствует");
+                        MessageBox.Show("Данный промежуточный пункт уже присутствует", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
 

@@ -45,7 +45,7 @@ namespace Employee.Windows
 
                 if (Crew.Employees.Any(x => x.Id == ((EmployeeDb)EmployeeGrid.SelectedItems[0]!).Id))
                 {
-                    MessageBox.Show("Данный сотрудник уже есть в экипаже");
+                    MessageBox.Show("Данный сотрудник уже есть в экипаже", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 

@@ -423,7 +423,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите пассажира для редактирования");
+            MessageBox.Show("Выберите пассажира для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -449,7 +449,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите пассажира для удаления");
+            MessageBox.Show("Выберите пассажира для удаления","Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -476,7 +476,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите авиалайнер для редактирования");
+            MessageBox.Show("Выберите авиалайнер для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -494,7 +494,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите авиалайнер для удаления");
+            MessageBox.Show("Выберите авиалайнер для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -511,7 +511,7 @@ public partial class MainWindow
         }
         catch (DbUpdateException exception)
         {
-            MessageBox.Show(exception.Message);
+            MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 
@@ -535,7 +535,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите сотрудника для редактирования");
+            MessageBox.Show("Выберите сотрудника для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -553,7 +553,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите сотрудника для удаления");
+            MessageBox.Show("Выберите сотрудника для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -580,7 +580,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите маршрут для редактирования");
+            MessageBox.Show("Выберите маршрут для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
     }
@@ -599,7 +599,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите маршрут для удаления");
+            MessageBox.Show("Выберите маршрут для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -626,7 +626,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите аэропорт для редактирования");
+            MessageBox.Show("Выберите аэропорт для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -644,7 +644,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите аэропорт для удаления");
+            MessageBox.Show("Выберите аэропорт для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -671,7 +671,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите экипаж для редактирования");
+            MessageBox.Show("Выберите экипаж для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -689,7 +689,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите экипаж для удаления");
+            MessageBox.Show("Выберите экипаж для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -716,7 +716,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите рейс для редактирования");
+            MessageBox.Show("Выберите рейс для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -734,7 +734,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите рейс для удаления");
+            MessageBox.Show("Выберите рейс для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -762,7 +762,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите вылет для редактирования");
+            MessageBox.Show("Выберите вылет для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -780,7 +780,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите вылет для удаления");
+            MessageBox.Show("Выберите вылет для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -802,7 +802,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите билет для удаления");
+            MessageBox.Show("Выберите билет для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -821,7 +821,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите билет для редактирования");
+            MessageBox.Show("Выберите билет для редактирования", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -844,7 +844,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите пользователя для редактирования прав");
+            MessageBox.Show("Выберите пользователя для редактирования прав", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 
@@ -862,7 +862,7 @@ public partial class MainWindow
                     }
                     else
                     {
-                        MessageBox.Show("Администратора нельзя удалить");
+                        MessageBox.Show("Администратора нельзя удалить", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
                 }
@@ -870,7 +870,7 @@ public partial class MainWindow
         }
         else
         {
-            MessageBox.Show("Выберите пользователя для удаления");
+            MessageBox.Show("Выберите пользователя для удаления", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -886,31 +886,31 @@ public partial class MainWindow
 
         if (oldPassword == String.Empty)
         {
-            MessageBox.Show("Старый пароль не заполнен. Введите старый пароль");
+            MessageBox.Show("Старый пароль не заполнен. Введите старый пароль", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
         if (newPassword == String.Empty)
         {
-            MessageBox.Show("Новый пароль не заполнен. Введите новый пароль");
+            MessageBox.Show("Новый пароль не заполнен. Введите новый пароль", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
         if (confirmPassword == String.Empty)
         {
-            MessageBox.Show("Подтвердите новый пароль");
+            MessageBox.Show("Подтвердите новый пароль", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
         if (newPassword.Length < 5)
         {
-            MessageBox.Show("Новый пароль не может быть меньше 5 символов");
+            MessageBox.Show("Новый пароль не может быть меньше 5 символов", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
         if (newPassword != confirmPassword)
         {
-            MessageBox.Show("Пароли не совпадают. Подтвердите новый пароль");
+            MessageBox.Show("Пароли не совпадают. Подтвердите новый пароль", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -925,17 +925,17 @@ public partial class MainWindow
                 OldPasswordTexBox.Password = string.Empty;
                 NewPasswordTexBox.Password = string.Empty;
                 ConfirmPasswordTexBox.Password = string.Empty;
-                MessageBox.Show("Пароль успешно изменён!");
+                MessageBox.Show("Пароль успешно изменён!", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("Ошибка: не удалось найти данного пользователя");
+                MessageBox.Show("Ошибка: не удалось найти данного пользователя", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
             }           
 
         }
         else
         {
-            MessageBox.Show("Неверный старый пароль!");
+            MessageBox.Show("Неверный старый пароль!", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 

@@ -31,32 +31,32 @@ namespace Passenger.Windows
         {
             if (string.IsNullOrEmpty(Passenger.FirstName))
             {
-                MessageBox.Show("Укажите имя");
+                MessageBox.Show("Укажите имя", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (string.IsNullOrEmpty(Passenger.LastName))
             {
-                MessageBox.Show("Укажите фамилию");
+                MessageBox.Show("Укажите фамилию", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (string.IsNullOrEmpty(Passenger.Patronymic))
             {
-                MessageBox.Show("Укажите отчество");
+                MessageBox.Show("Укажите отчество", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (Passenger.PassportSeries.ToString() == null || Passenger.PassportSeries.ToString() == "0")
             {
-                MessageBox.Show("Укажите серию");
+                MessageBox.Show("Укажите серию", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if ((Passenger.PassportId.ToString() == null) || Passenger.PassportId.ToString() == "0")
             {
-                MessageBox.Show("Укажите номер");
+                MessageBox.Show("Укажите номер", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             if (string.IsNullOrEmpty(Passenger.IssuedBy))
             {
-                MessageBox.Show("Укажите кем выдан паспорт");
+                MessageBox.Show("Укажите кем выдан паспорт", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             try
@@ -70,7 +70,7 @@ namespace Passenger.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

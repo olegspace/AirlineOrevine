@@ -49,13 +49,13 @@ namespace Flight.Windows
         {
             if (string.IsNullOrEmpty(Flight.Title))
             {
-                MessageBox.Show("Укажите название рейса");
+                MessageBox.Show("Укажите название рейса", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
             if (Flight.Route == null)
             {
-                MessageBox.Show("Выберите маршрут");
+                MessageBox.Show("Выберите маршрут", "Оповещение", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
@@ -71,7 +71,7 @@ namespace Flight.Windows
             }
             catch (DbUpdateException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
