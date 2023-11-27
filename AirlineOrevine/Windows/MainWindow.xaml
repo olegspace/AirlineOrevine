@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AirlineOrevine.Windows"
         mc:Ignorable="d"
         Background="AliceBlue"
-        Title="АИС Авиакомпания Orevine" Height="600" Width="1000" MinWidth="700" MinHeight="600" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
+        Title="АИС Авиакомпания Orevine" Height="600" Width="1150" MinWidth="800" MinHeight="600" WindowStartupLocation="CenterScreen" Icon="/Windows/plane.png">
 
     <Grid>
 
@@ -341,26 +341,11 @@
                         </Grid>
                     </TabItem>
 
-                    <TabItem x:Name="HelpTabItem" Header="Справка" Visibility="Hidden" Height="0">
+                    <TabItem x:Name="StartTabItem" Header="Справка" Visibility="Hidden" Height="0">
                         <Viewbox>
-                            <Grid Margin="10">
-                                <Grid Height="400">
-                                    <StackPanel>
-                                        <Label Content="Как работает программа:" Width="Auto" HorizontalAlignment="Center"
-                                           FontWeight="ExtraBold" />
-                                        <TextBlock TextWrapping="Wrap">
-                                        Пользователь, при разрешённых правах доступа администратором, может читать, добавлять, редактировать, удалять необходимые данные;
-                                        <LineBreak />
-                                        <LineBreak />
-                                        Пользователь имеет возможность экспортрровать список пассажиров в эксель и ворд файл;
-                                        <LineBreak />
-                                        <LineBreak />
-                                        У всех пользователя есть возможность для изменения пароля;<LineBreak />
-                                        <LineBreak />
-                                        ...
-                                        </TextBlock>
-                                    </StackPanel>
-                                </Grid>
+                            <Grid Margin="10 10 10 50">
+                                <Label Content="Информационная система Авиакомпании Orevine" Width="Auto" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"  FontWeight="ExtraBold" />                                                                            
                             </Grid>
                         </Viewbox>
                     </TabItem>

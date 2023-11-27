@@ -30,6 +30,7 @@ using TicketDb = DbContext.Models.Ticket;
 using DepartureDb = DbContext.Models.Departure;
 using FlightDb = DbContext.Models.Flight;
 using MenuItem = System.Windows.Controls.MenuItem;
+using System.Diagnostics;
 
 namespace AirlineOrevine.Windows;
 
@@ -51,6 +52,7 @@ public partial class MainWindow
     private const string RecoverPasswordTitle = "Изменение пароля пользователя";
     private const string FirstDocumentTitle = "Список пассажиров";
     private const string ContentTitle = "Содержание программы";
+    private const string WelcomeTitle = "Добро пожаловать";
 
     public List<PassengerDb> Passengers { get; set; }
     public List<LinerDb> Liners { get; set; }
@@ -72,8 +74,8 @@ public partial class MainWindow
         DataContext = this;
         User = user;
 
-        TabControl.SelectedItem = HelpTabItem;
-        TitleTextBlock.Text = HelpTitle;
+        TabControl.SelectedItem = StartTabItem;
+        TitleTextBlock.Text = WelcomeTitle + " " + user.Login;
         UserNameTextBlock.Text = user.Login;
 
         InitMenuItems();
@@ -874,8 +876,16 @@ public partial class MainWindow
             return;
         }
 
-        _dbContext.SaveChanges();
-        RefreshTicketGrid();
+        try
+        {
+            _dbContext.SaveChanges();
+            RefreshUserGrid();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Ошибка при удалении пользователя");
+        }
+        
     }
 
     private void RecoverPasswordButton_Click(object sender, RoutedEventArgs e)
@@ -1015,18 +1025,22 @@ public partial class MainWindow
         TitleTextBlock.Text = TicketTitle;
     }
 
-    //public void OpenHelpButton_Click(object sender, RoutedEventArgs e)
-    //{
-    //    TabControl.SelectedItem = HelpTabItem;
-    //    TitleTextBlock.Text = HelpTitle;
-    //}
-
     public void ContentButton_Click(object sender, RoutedEventArgs e)
     {
-        /////Исправить
-        TabControl.SelectedItem = ContentTabItem;
-        TitleTextBlock.Text = ContentTitle;
-        /////
+        try
+        {
+            Process process = new();
+            process.StartInfo = new ProcessStartInfo("Help.pdf")
+            {
+                UseShellExecute = true
+            };
+            process.Start();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Ошибка при открытии руководства пользователя");
+        }
+        
     }
 
     public void AboutProgramButton_Click(object sender, RoutedEventArgs e)
